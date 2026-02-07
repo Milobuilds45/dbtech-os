@@ -2123,7 +2123,7 @@
                     <div class="nav-item" data-section="projects">
                         <span class="nav-icon">◆</span>
                         <span>Projects</span>
-                        <span class="nav-badge">8</span>
+                        <span class="nav-badge">20</span>
                     </div>
                     <div class="nav-item" data-section="markets">
                         <span class="nav-icon">◈</span>
@@ -2225,8 +2225,8 @@
                                     </path>
                                 </svg>
                             </div>
-                            <div class="stat-value" data-count="8">0</div>
-                            <div class="stat-detail">5 in progress</div>
+                            <div class="stat-value" data-count="20">0</div>
+                            <div class="stat-detail">17 active · 3 launched</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-header">
@@ -2463,14 +2463,26 @@
         ];
 
         const PROJECTS = [
-            { name: 'Soul Solace', desc: 'Mindfulness and wellness app — guided reflections, journaling, and daily calm.', status: 'active', progress: 45, color: '#a78bfa', url: 'soul-solace.vercel.app', repo: 'soul-solace', category: 'active' },
-            { name: 'Sunday Squares', desc: 'Weekly visual inspiration and curated design moments delivered every Sunday.', status: 'progress', progress: 35, color: '#fb923c', url: 'sunday-squares.vercel.app', repo: 'sunday-squares', category: 'active' },
-            { name: 'Boundless', desc: 'Personal brand and blog — thoughts on building, creating, and living without limits.', status: 'active', progress: 60, color: '#34d399', url: 'boundless.vercel.app', repo: 'boundless', category: 'active' },
-            { name: 'tickR', desc: 'Real-time stock ticker and market data dashboard with alerts and watchlists.', status: 'progress', progress: 40, color: '#22d3ee', url: '#', repo: 'tickr', category: 'active' },
-            { name: 'Concrete Before Curtains', desc: 'Content brand about building foundations first — substance over aesthetics.', status: 'progress', progress: 25, color: '#94a3b8', url: '#', repo: 'concrete-before-curtains', category: 'active' },
-            { name: 'dbtech45.com', desc: 'Personal portfolio and digital home base. The hub for everything DB Tech.', status: 'launched', progress: 100, color: '#fbbf24', url: 'dbtech45.com', repo: 'dbtech45', category: 'launched' },
-            { name: 'Signal & Noise', desc: 'Daily market newsletter separating signal from noise in financial markets.', status: 'active', progress: 80, color: '#f472b6', url: 'signal-noise.vercel.app', repo: 'signal-and-noise', category: 'active' },
-            { name: 'SharpEdge AI', desc: 'AI-powered sports analytics and betting insights for the sharp bettor.', status: 'progress', progress: 55, color: '#f87171', url: '#', repo: 'sharpedge-ai', category: 'active' }
+            { name: 'dbtech45.com', desc: 'Personal portfolio and digital home base. The hub for everything DB Tech.', status: 'launched', progress: 100, color: '#fbbf24', url: 'dbtech45.vercel.app', repo: 'dbtech45', category: 'launched' },
+            { name: 'Soul Solace', desc: 'Mindfulness and wellness app. Guided reflections, journaling, and daily calm.', status: 'active', progress: 45, color: '#a78bfa', url: 'soulsolace.vercel.app', repo: 'Soulsolace', category: 'active' },
+            { name: 'Sunday Squares', desc: 'Football squares app. Weekly pools, live scoring, and easy management.', status: 'active', progress: 35, color: '#fb923c', url: 'sunday-squares.vercel.app', repo: 'SundaySquares', category: 'active' },
+            { name: 'Boundless', desc: 'Journaling app. Thoughts on building, creating, and living without limits.', status: 'active', progress: 60, color: '#34d399', url: 'boundless-ochre.vercel.app', repo: 'boundless', category: 'active' },
+            { name: 'tickR', desc: 'Kids investing app. Teaching the next generation about markets and money.', status: 'active', progress: 40, color: '#22d3ee', url: 'tick-r.vercel.app', repo: 'tickR', category: 'active' },
+            { name: 'MenuSparks', desc: 'Menu special optimization. Helping restaurants maximize their menu performance.', status: 'active', progress: 50, color: '#f59e0b', url: 'menusparks.vercel.app', repo: 'menusparks', category: 'active' },
+            { name: 'SpendSignal', desc: 'Personal finance tracking and spending analysis dashboard.', status: 'active', progress: 70, color: '#06b6d4', url: 'spendsignal.vercel.app', repo: 'spendsignal', category: 'active' },
+            { name: 'Bobola\'s Site', desc: 'Official website for Bobola\'s restaurant. Menu, hours, and ordering.', status: 'launched', progress: 100, color: '#ef4444', url: 'bobolas-site.vercel.app', repo: 'Bobolas-site', category: 'launched' },
+            { name: 'PicForge', desc: 'AI image generation and editing tool. Create and transform visuals.', status: 'active', progress: 55, color: '#a855f7', url: 'picforge.vercel.app', repo: 'picforge', category: 'active' },
+            { name: 'Mockavio', desc: 'Corporate video editing and production tool.', status: 'active', progress: 30, color: '#64748b', url: '#', repo: 'mockavio', category: 'active' },
+            { name: 'Pour Plan', desc: 'Drink recipe and bar management app.', status: 'active', progress: 35, color: '#f472b6', url: '#', repo: 'pourplan', category: 'active' },
+            { name: 'Back Nine', desc: 'Golf scoring and handicap tracking app.', status: 'active', progress: 45, color: '#22c55e', url: 'backnine-ten.vercel.app', repo: 'backnine', category: 'active' },
+            { name: 'Locals Diner', desc: 'Local restaurant discovery and community dining guide.', status: 'active', progress: 40, color: '#fb923c', url: 'localsdiner.vercel.app', repo: 'Localsdiner', category: 'active' },
+            { name: 'BullishIQ', desc: 'Market intelligence and trading education platform.', status: 'active', progress: 25, color: '#10b981', url: '#', repo: 'bullishIQ', category: 'active' },
+            { name: 'StockFool', desc: 'Stock market analysis and foolproof investing tools.', status: 'active', progress: 20, color: '#6366f1', url: '#', repo: 'stockfool', category: 'active' },
+            { name: 'InventoryBuddy', desc: 'Inventory management and tracking for small businesses.', status: 'active', progress: 50, color: '#14b8a6', url: 'inventorybuddy-delta.vercel.app', repo: 'inventorybuddy', category: 'active' },
+            { name: 'Scheduler', desc: 'Scheduling and calendar management tool.', status: 'active', progress: 45, color: '#8b5cf6', url: 'scheduler-hazel-three.vercel.app', repo: 'Scheduler', category: 'active' },
+            { name: 'Santa25', desc: 'Christmas gift exchange and Secret Santa organizer.', status: 'launched', progress: 100, color: '#ef4444', url: 'santa25.vercel.app', repo: 'santa25', category: 'launched' },
+            { name: '7LL', desc: '7 Layer Labs. The parent brand and lab for all projects.', status: 'active', progress: 30, color: '#00d4ff', url: '#', repo: '7LL', category: 'active' },
+            { name: 'YourWebsiteSucks', desc: 'Brutally honest website review and roast service.', status: 'active', progress: 20, color: '#f87171', url: '#', repo: 'Yourwebsitesucks', category: 'active' }
         ];
 
         const TICKERS = [
@@ -2504,14 +2516,18 @@
                 { name: 'Concrete Before Curtains', url: 'concrete-before-curtains.vercel.app', icon: '🧱' }
             ],
             github: [
-                { name: 'dbtech45', url: 'github.com/dbtech45', icon: '◆' },
-                { name: 'dbtech-os', url: 'github.com/dbtech45/dbtech-os', icon: '⌘' },
-                { name: 'soul-solace', url: 'github.com/dbtech45/soul-solace', icon: '🧘' },
-                { name: 'signal-and-noise', url: 'github.com/dbtech45/signal-and-noise', icon: '📰' },
-                { name: 'sharpedge-ai', url: 'github.com/dbtech45/sharpedge-ai', icon: '🤖' },
-                { name: 'sunday-squares', url: 'github.com/dbtech45/sunday-squares', icon: '🟧' },
-                { name: 'tickr', url: 'github.com/dbtech45/tickr', icon: '📈' },
-                { name: 'boundless', url: 'github.com/dbtech45/boundless', icon: '✨' }
+                { name: '7LayerLabs (Org)', url: 'github.com/7LayerLabs', icon: '◆' },
+                { name: 'dbtech45', url: 'github.com/7LayerLabs/dbtech45', icon: '🌐' },
+                { name: 'SundaySquares', url: 'github.com/7LayerLabs/SundaySquares', icon: '🏈' },
+                { name: 'Soulsolace', url: 'github.com/7LayerLabs/Soulsolace', icon: '🧘' },
+                { name: 'boundless', url: 'github.com/7LayerLabs/boundless', icon: '✨' },
+                { name: 'tickR', url: 'github.com/7LayerLabs/tickR', icon: '📈' },
+                { name: 'menusparks', url: 'github.com/7LayerLabs/menusparks', icon: '🍽️' },
+                { name: 'spendsignal', url: 'github.com/7LayerLabs/spendsignal', icon: '💰' },
+                { name: 'Bobolas-site', url: 'github.com/7LayerLabs/Bobolas-site', icon: '🍕' },
+                { name: 'picforge', url: 'github.com/7LayerLabs/picforge', icon: '🎨' },
+                { name: 'backnine', url: 'github.com/7LayerLabs/backnine', icon: '⛳' },
+                { name: 'inventorybuddy', url: 'github.com/7LayerLabs/inventorybuddy', icon: '📦' }
             ],
             telegram: [
                 { name: 'Milo Bot', url: 't.me/MiloAssistBot', icon: '🧠' },
@@ -2735,7 +2751,7 @@
                     </div>
                     <div class="project-links">
                         ${hasUrl ? `<a href="https://${project.url}" target="_blank" class="project-link">🌐 Live Site</a>` : ''}
-                        <a href="https://github.com/dbtech45/${project.repo}" target="_blank" class="project-link">◆ Repo</a>
+                        <a href="https://github.com/7LayerLabs/${project.repo}" target="_blank" class="project-link">◆ Repo</a>
                         <span class="project-link" onclick="navigateTo('mission-control')">👥 Team</span>
                     </div>
                 </div>
