@@ -1701,6 +1701,219 @@
         }
 
         /* ═══════════════════════════════════════════
+           KANBAN BOARD
+           ═══════════════════════════════════════════ */
+
+        .kanban-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-6);
+        }
+
+        .kanban-board {
+            display: flex;
+            gap: var(--space-5);
+            overflow-x: auto;
+            min-height: 500px;
+            padding-bottom: var(--space-4);
+        }
+
+        .kanban-board::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .kanban-board::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .kanban-board::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .kanban-column {
+            flex: 1;
+            min-width: 260px;
+            max-width: 340px;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-base);
+        }
+
+        .kanban-column.drag-over {
+            border-color: var(--accent);
+            box-shadow: 0 0 24px rgba(0, 212, 255, 0.12), inset 0 0 24px rgba(0, 212, 255, 0.04);
+            background: rgba(0, 212, 255, 0.03);
+        }
+
+        .kanban-column-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-4) var(--space-5);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .kanban-column-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kanban-column-count {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-muted);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .kanban-column-body {
+            flex: 1;
+            padding: var(--space-3);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+            min-height: 80px;
+        }
+
+        .kanban-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            cursor: grab;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+
+        .kanban-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .kanban-card:active {
+            cursor: grabbing;
+        }
+
+        .kanban-card.dragging {
+            opacity: 0.4;
+            transform: rotate(2deg) scale(0.97);
+        }
+
+        .kanban-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: var(--space-2);
+            gap: var(--space-2);
+        }
+
+        .kanban-card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .kanban-card-delete {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0;
+            line-height: 1;
+            opacity: 0;
+            transition: all var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        .kanban-card:hover .kanban-card-delete {
+            opacity: 1;
+        }
+
+        .kanban-card-delete:hover {
+            color: var(--danger);
+        }
+
+        .kanban-card-desc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: var(--space-3);
+        }
+
+        .kanban-card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .kanban-priority {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .kanban-priority.high {
+            color: var(--danger);
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .kanban-priority.med {
+            color: var(--warning);
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .kanban-priority.low {
+            color: var(--success);
+            background: rgba(34, 197, 94, 0.12);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .kanban-card-date {
+            font-size: 10px;
+            color: var(--text-tertiary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .kanban-empty {
+            text-align: center;
+            padding: var(--space-6) var(--space-3);
+            color: var(--text-tertiary);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .kanban-board {
+                min-height: 400px;
+            }
+
+            .kanban-column {
+                min-width: 240px;
+            }
+        }
+
+        /* ═══════════════════════════════════════════
            MODALS
            ═══════════════════════════════════════════ */
 
@@ -2143,10 +2356,15 @@
                         <span>Quick Links</span>
                         <span class="nav-kbd">5</span>
                     </div>
+                    <div class="nav-item" data-section="kanban">
+                        <span class="nav-icon">▦</span>
+                        <span>Kanban</span>
+                        <span class="nav-kbd">6</span>
+                    </div>
                     <div class="nav-item" data-section="ideas-vault">
                         <span class="nav-icon">✦</span>
                         <span>Ideas Vault</span>
-                        <span class="nav-kbd">6</span>
+                        <span class="nav-kbd">7</span>
                     </div>
                 </div>
             </nav>
@@ -2371,6 +2589,48 @@
                     </div>
                 </div>
 
+                <!-- ═══ KANBAN BOARD ═══ -->
+                <div class="section" id="section-kanban">
+                    <div class="kanban-header">
+                        <div>
+                            <h1 class="section-title">Kanban Board</h1>
+                            <p class="section-subtitle">Drag cards between columns to track progress</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="openKanbanModal()">+ Add Card</button>
+                    </div>
+
+                    <div class="kanban-board" id="kanbanBoard">
+                        <div class="kanban-column" data-column="backlog" ondragover="kanbanDragOver(event)" ondragleave="kanbanDragLeave(event)" ondrop="kanbanDrop(event)">
+                            <div class="kanban-column-header">
+                                <span class="kanban-column-title">Backlog</span>
+                                <span class="kanban-column-count" id="count-backlog">0</span>
+                            </div>
+                            <div class="kanban-column-body" id="col-backlog"></div>
+                        </div>
+                        <div class="kanban-column" data-column="progress" ondragover="kanbanDragOver(event)" ondragleave="kanbanDragLeave(event)" ondrop="kanbanDrop(event)">
+                            <div class="kanban-column-header">
+                                <span class="kanban-column-title">In Progress</span>
+                                <span class="kanban-column-count" id="count-progress">0</span>
+                            </div>
+                            <div class="kanban-column-body" id="col-progress"></div>
+                        </div>
+                        <div class="kanban-column" data-column="review" ondragover="kanbanDragOver(event)" ondragleave="kanbanDragLeave(event)" ondrop="kanbanDrop(event)">
+                            <div class="kanban-column-header">
+                                <span class="kanban-column-title">Review</span>
+                                <span class="kanban-column-count" id="count-review">0</span>
+                            </div>
+                            <div class="kanban-column-body" id="col-review"></div>
+                        </div>
+                        <div class="kanban-column" data-column="done" ondragover="kanbanDragOver(event)" ondragleave="kanbanDragLeave(event)" ondrop="kanbanDrop(event)">
+                            <div class="kanban-column-header">
+                                <span class="kanban-column-title">Done</span>
+                                <span class="kanban-column-count" id="count-done">0</span>
+                            </div>
+                            <div class="kanban-column-body" id="col-done"></div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- ═══ IDEAS VAULT ═══ -->
                 <div class="section" id="section-ideas-vault">
                     <div class="ideas-header">
@@ -2422,6 +2682,42 @@
             <div class="modal-actions">
                 <button class="btn" onclick="closeNewIdea()">Cancel</button>
                 <button class="btn btn-primary" onclick="saveIdea()">Save Idea</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kanban Card Modal -->
+    <div class="modal-overlay" id="kanbanModal">
+        <div class="modal">
+            <h2 class="modal-title">▦ New Kanban Card</h2>
+            <div class="form-group">
+                <label class="form-label">Title</label>
+                <input type="text" class="form-input" id="kanbanTitle" placeholder="What needs to be done?">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea class="form-textarea" id="kanbanDesc" placeholder="Add details (optional)..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Column</label>
+                <select class="form-select" id="kanbanColumn">
+                    <option value="backlog">📋 Backlog</option>
+                    <option value="progress">🔨 In Progress</option>
+                    <option value="review">🔍 Review</option>
+                    <option value="done">✅ Done</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Priority</label>
+                <select class="form-select" id="kanbanPriority">
+                    <option value="low">🟢 Low</option>
+                    <option value="med">🟡 Medium</option>
+                    <option value="high">🔴 High</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeKanbanModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveKanbanCard()">Add Card</button>
             </div>
         </div>
     </div>
@@ -2862,6 +3158,7 @@
             'markets': 'Market Dashboard',
             'daily-feed': 'Daily Feed',
             'quick-links': 'Quick Links',
+            'kanban': 'Kanban Board',
             'ideas-vault': 'Ideas Vault'
         };
 
@@ -2871,6 +3168,7 @@
             'markets': 'Market Intel',
             'daily-feed': 'Activity Log',
             'quick-links': 'Links & Tools',
+            'kanban': 'Task Board',
             'ideas-vault': 'Idea Tracker'
         };
 
@@ -2928,6 +3226,164 @@
                 btn.disabled = false;
                 showToast('Dashboard Refreshed', 'All data updated', 'success');
             }, 900);
+        }
+
+        // ─── KANBAN BOARD ─────────────────────────
+
+        const KANBAN_SEED = [
+            { id: 1, title: 'Launch Sunday Squares', desc: 'Finalize MVP and push to production', column: 'backlog', priority: 'high', date: '2025-01-15' },
+            { id: 2, title: 'Boundless v2 design review', desc: 'Review new UI mockups with team', column: 'progress', priority: 'med', date: '2025-01-14' },
+            { id: 3, title: 'Soul Solace beta testing', desc: 'Gather feedback from beta users', column: 'review', priority: 'med', date: '2025-01-13' },
+            { id: 4, title: 'dbtech45.com terminal theme', desc: 'Ship the terminal-inspired landing page', column: 'done', priority: 'high', date: '2025-01-12' }
+        ];
+
+        let kanbanCards = [];
+        let draggingCardId = null;
+
+        function loadKanban() {
+            try {
+                const stored = localStorage.getItem('dbtech-kanban');
+                if (stored) {
+                    kanbanCards = JSON.parse(stored);
+                } else {
+                    kanbanCards = [...KANBAN_SEED];
+                    saveKanban();
+                }
+            } catch(e) {
+                kanbanCards = [...KANBAN_SEED];
+            }
+        }
+
+        function saveKanban() {
+            try { localStorage.setItem('dbtech-kanban', JSON.stringify(kanbanCards)); } catch(e) {}
+        }
+
+        function renderKanban() {
+            const columns = ['backlog', 'progress', 'review', 'done'];
+            columns.forEach(col => {
+                const body = document.getElementById(`col-${col}`);
+                const count = document.getElementById(`count-${col}`);
+                const cards = kanbanCards.filter(c => c.column === col);
+                count.textContent = cards.length;
+
+                if (cards.length === 0) {
+                    body.innerHTML = '<div class="kanban-empty">Drop cards here</div>';
+                    return;
+                }
+
+                body.innerHTML = cards.map(card => `
+                    <div class="kanban-card" draggable="true" data-card-id="${card.id}"
+                         ondragstart="kanbanDragStart(event, ${card.id})"
+                         ondragend="kanbanDragEnd(event)">
+                        <div class="kanban-card-header">
+                            <span class="kanban-card-title">${escapeHTML(card.title)}</span>
+                            <button class="kanban-card-delete" onclick="deleteKanbanCard(${card.id})" title="Delete card">✕</button>
+                        </div>
+                        ${card.desc ? `<div class="kanban-card-desc">${escapeHTML(card.desc)}</div>` : ''}
+                        <div class="kanban-card-meta">
+                            <span class="kanban-priority ${card.priority}">${card.priority}</span>
+                            <span class="kanban-card-date">${card.date}</span>
+                        </div>
+                    </div>
+                `).join('');
+            });
+        }
+
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function kanbanDragStart(e, cardId) {
+            draggingCardId = cardId;
+            e.target.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', cardId);
+        }
+
+        function kanbanDragEnd(e) {
+            e.target.classList.remove('dragging');
+            draggingCardId = null;
+            document.querySelectorAll('.kanban-column').forEach(col => col.classList.remove('drag-over'));
+        }
+
+        function kanbanDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            const col = e.target.closest('.kanban-column');
+            if (col) col.classList.add('drag-over');
+        }
+
+        function kanbanDragLeave(e) {
+            const col = e.target.closest('.kanban-column');
+            if (col && !col.contains(e.relatedTarget)) {
+                col.classList.remove('drag-over');
+            }
+        }
+
+        function kanbanDrop(e) {
+            e.preventDefault();
+            const col = e.target.closest('.kanban-column');
+            if (!col) return;
+            col.classList.remove('drag-over');
+
+            const cardId = parseInt(e.dataTransfer.getData('text/plain'));
+            const newColumn = col.dataset.column;
+            const card = kanbanCards.find(c => c.id === cardId);
+            if (card && card.column !== newColumn) {
+                card.column = newColumn;
+                saveKanban();
+                renderKanban();
+                showToast('Card Moved', `"${card.title}" → ${newColumn === 'progress' ? 'In Progress' : newColumn.charAt(0).toUpperCase() + newColumn.slice(1)}`, 'accent');
+            }
+        }
+
+        function openKanbanModal() {
+            document.getElementById('kanbanModal').classList.add('active');
+            setTimeout(() => document.getElementById('kanbanTitle').focus(), 100);
+        }
+
+        function closeKanbanModal() {
+            document.getElementById('kanbanModal').classList.remove('active');
+            document.getElementById('kanbanTitle').value = '';
+            document.getElementById('kanbanDesc').value = '';
+            document.getElementById('kanbanColumn').value = 'backlog';
+            document.getElementById('kanbanPriority').value = 'med';
+        }
+
+        function saveKanbanCard() {
+            const title = document.getElementById('kanbanTitle').value.trim();
+            const desc = document.getElementById('kanbanDesc').value.trim();
+            const column = document.getElementById('kanbanColumn').value;
+            const priority = document.getElementById('kanbanPriority').value;
+
+            if (!title) {
+                showToast('Missing Title', 'Give your card a name', 'warning');
+                return;
+            }
+
+            kanbanCards.push({
+                id: Date.now(),
+                title,
+                desc,
+                column,
+                priority,
+                date: new Date().toISOString().split('T')[0]
+            });
+
+            saveKanban();
+            renderKanban();
+            closeKanbanModal();
+            showToast('Card Added', `"${title}" added to board`, 'success');
+        }
+
+        function deleteKanbanCard(id) {
+            const card = kanbanCards.find(c => c.id === id);
+            kanbanCards = kanbanCards.filter(c => c.id !== id);
+            saveKanban();
+            renderKanban();
+            if (card) showToast('Card Deleted', `"${card.title}" removed`, 'warning');
         }
 
         function openNewIdea() {
@@ -3015,7 +3471,9 @@
             { icon: '◈', text: 'Market Dashboard', hint: 'Bobby\'s intel', kbd: '3', action: () => navigateTo('markets') },
             { icon: '▸', text: 'Daily Feed', hint: 'Today\'s activity', kbd: '4', action: () => navigateTo('daily-feed') },
             { icon: '↗', text: 'Quick Links', hint: 'All links', kbd: '5', action: () => navigateTo('quick-links') },
-            { icon: '✦', text: 'Ideas Vault', hint: 'Track ideas', kbd: '6', action: () => navigateTo('ideas-vault') },
+            { icon: '▦', text: 'Kanban Board', hint: 'Task board', kbd: '6', action: () => navigateTo('kanban') },
+            { icon: '✦', text: 'Ideas Vault', hint: 'Track ideas', kbd: '7', action: () => navigateTo('ideas-vault') },
+            { icon: '+', text: 'New Kanban Card', hint: 'Add to board', kbd: '', action: () => { navigateTo('kanban'); setTimeout(openKanbanModal, 300); } },
             { icon: '+', text: 'New Idea', hint: 'Add to vault', kbd: 'N', action: () => { navigateTo('ideas-vault'); setTimeout(openNewIdea, 300); } },
             { icon: '☀', text: 'Toggle Theme', hint: 'Light / Dark', kbd: '', action: toggleTheme },
             { icon: '↻', text: 'Refresh Dashboard', hint: 'Reload all data', kbd: '', action: refreshDashboard },
@@ -3101,8 +3559,8 @@
 
         // ─── KEYBOARD SHORTCUTS ──────────────────────
 
-        const sectionKeys = ['1', '2', '3', '4', '5', '6'];
-        const sectionIds = ['mission-control', 'projects', 'markets', 'daily-feed', 'quick-links', 'ideas-vault'];
+        const sectionKeys = ['1', '2', '3', '4', '5', '6', '7'];
+        const sectionIds = ['mission-control', 'projects', 'markets', 'daily-feed', 'quick-links', 'kanban', 'ideas-vault'];
 
         document.addEventListener('keydown', (e) => {
             // Don't fire shortcuts when typing in inputs
@@ -3118,6 +3576,7 @@
             if (e.key === 'Escape') {
                 closeCommandPalette();
                 closeNewIdea();
+                closeKanbanModal();
                 return;
             }
 
@@ -3152,6 +3611,10 @@
             if (e.target.id === 'ideaModal') closeNewIdea();
         });
 
+        document.getElementById('kanbanModal').addEventListener('click', (e) => {
+            if (e.target.id === 'kanbanModal') closeKanbanModal();
+        });
+
         // ─── MOBILE ──────────────────────────────────
 
         function closeMobileSidebar() {
@@ -3169,6 +3632,7 @@
         // ─── INIT ────────────────────────────────────
 
         initTheme();
+        loadKanban();
         loadIdeasFromStorage();
         randomizeAgentStatuses();
         renderAgents();
@@ -3176,6 +3640,7 @@
         renderTickers();
         renderFeed();
         renderLinks();
+        renderKanban();
         renderIdeas();
         handleHashRoute();
 
