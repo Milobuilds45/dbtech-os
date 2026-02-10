@@ -96,8 +96,21 @@ async function callGoogle(model, question) {
   }
 
   const data = await response.json();
+  
+  // Handle empty or blocked responses
+  if (!data.candidates || data.candidates.length === 0) {
+    const blockReason = data.promptFeedback?.blockReason || 'Unknown';
+    throw new Error(`Response blocked or empty (reason: ${blockReason})`);
+  }
+  
+  const candidate = data.candidates[0];
+  if (!candidate.content || !candidate.content.parts || candidate.content.parts.length === 0) {
+    const finishReason = candidate.finishReason || 'Unknown';
+    throw new Error(`No content returned (finishReason: ${finishReason})`);
+  }
+
   return {
-    content: data.candidates[0].content.parts[0].text,
+    content: candidate.content.parts[0].text,
     tokens: {
       input: data.usageMetadata?.promptTokenCount || 0,
       output: data.usageMetadata?.candidatesTokenCount || 0
