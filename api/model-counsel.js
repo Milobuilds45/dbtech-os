@@ -81,12 +81,15 @@ async function callGoogle(model, question) {
   const apiKey = process.env.GOOGLE_API_KEY;
   if (!apiKey) throw new Error('GOOGLE_API_KEY not configured');
 
+  // Gemini 2.5 Pro needs higher token limit for thinking
+  const maxTokens = model.includes('pro') ? 8192 : 2048;
+
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       contents: [{ parts: [{ text: question }] }],
-      generationConfig: { maxOutputTokens: 1024 }
+      generationConfig: { maxOutputTokens: maxTokens }
     })
   });
 
