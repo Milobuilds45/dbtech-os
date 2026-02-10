@@ -1,8 +1,15 @@
 {
   "buildCommand": "",
   "outputDirectory": ".",
+  "functions": {
+    "api/*.js": {
+      "runtime": "@vercel/node@3.2.0",
+      "maxDuration": 60
+    }
+  },
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/((?!api).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

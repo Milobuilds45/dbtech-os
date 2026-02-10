@@ -2240,6 +2240,234 @@
             from { opacity: 0; transform: translateY(12px) scale(0.97); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
+
+        /* ═══ MODEL COUNSEL ═══ */
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: var(--space-3);
+        }
+
+        .model-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .model-checkbox input {
+            display: none;
+        }
+
+        .model-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg-card-solid);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            width: 100%;
+        }
+
+        .model-checkbox input:checked + .model-label {
+            border-color: var(--model-color, var(--accent));
+            background: rgba(255,255,255,0.02);
+            color: var(--text-primary);
+            box-shadow: 0 0 0 1px var(--model-color, var(--accent)), 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .model-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--model-color, var(--accent));
+            opacity: 0.4;
+            transition: opacity var(--transition-fast);
+        }
+
+        .model-checkbox input:checked + .model-label .model-dot {
+            opacity: 1;
+            box-shadow: 0 0 8px var(--model-color, var(--accent));
+        }
+
+        .counsel-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: var(--space-4);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: var(--bg-input);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all var(--transition-fast);
+        }
+
+        .counsel-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-muted);
+        }
+
+        .counsel-textarea::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .counsel-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-12);
+            color: var(--text-secondary);
+            gap: var(--space-4);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .counsel-results {
+            animation: fadeIn 0.3s ease;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-4);
+        }
+
+        .results-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .model-responses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-4);
+        }
+
+        .model-response-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all var(--transition-fast);
+        }
+
+        .model-response-card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .model-response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-3) var(--space-4);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-elevated);
+        }
+
+        .model-response-name {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .model-response-name .model-dot {
+            opacity: 1;
+        }
+
+        .model-response-meta {
+            display: flex;
+            gap: var(--space-3);
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .model-response-content {
+            padding: var(--space-4);
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .model-response-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .model-response-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .model-response-content::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .model-response-error {
+            color: var(--danger);
+            padding: var(--space-4);
+            font-size: 13px;
+        }
+
+        .counsel-combined {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .counsel-combined .card-header {
+            background: var(--gradient-accent);
+            color: white;
+        }
+
+        .counsel-combined .card-title {
+            color: white;
+        }
+
+        #combinedContent {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .model-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .model-responses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -2332,6 +2560,11 @@
                         <span class="nav-icon">⌘</span>
                         <span>Mission Control</span>
                         <span class="nav-kbd">1</span>
+                    </div>
+                    <div class="nav-item" data-section="model-counsel">
+                        <span class="nav-icon">⚡</span>
+                        <span>Model Counsel</span>
+                        <span class="nav-kbd">M</span>
                     </div>
                     <div class="nav-item" data-section="projects">
                         <span class="nav-icon">◆</span>
@@ -2483,6 +2716,112 @@
                     <!-- Agents Grid -->
                     <div class="agents-grid stagger-in" id="agentsGrid">
                         <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- ═══ MODEL COUNSEL ═══ -->
+                <div class="section" id="section-model-counsel">
+                    <div class="section-header">
+                        <div>
+                            <h1 class="section-title">Model Counsel</h1>
+                            <p class="section-subtitle">Compare responses from multiple AI models side-by-side</p>
+                        </div>
+                    </div>
+
+                    <!-- Model Selection -->
+                    <div class="card" style="margin-bottom: var(--space-6);">
+                        <div class="card-header">
+                            <div class="card-title">Select Models</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="model-grid" id="modelSelection">
+                                <label class="model-checkbox">
+                                    <input type="checkbox" value="claude-opus" checked>
+                                    <span class="model-label" style="--model-color: #D97706;">
+                                        <span class="model-dot"></span>
+                                        Claude Opus 4.6
+                                    </span>
+                                </label>
+                                <label class="model-checkbox">
+                                    <input type="checkbox" value="claude-sonnet" checked>
+                                    <span class="model-label" style="--model-color: #EA580C;">
+                                        <span class="model-dot"></span>
+                                        Claude Sonnet 4.5
+                                    </span>
+                                </label>
+                                <label class="model-checkbox">
+                                    <input type="checkbox" value="gemini-pro" checked>
+                                    <span class="model-label" style="--model-color: #2563EB;">
+                                        <span class="model-dot"></span>
+                                        Gemini 2.5 Pro
+                                    </span>
+                                </label>
+                                <label class="model-checkbox">
+                                    <input type="checkbox" value="gemini-flash" checked>
+                                    <span class="model-label" style="--model-color: #0891B2;">
+                                        <span class="model-dot"></span>
+                                        Gemini 2.5 Flash
+                                    </span>
+                                </label>
+                                <label class="model-checkbox">
+                                    <input type="checkbox" value="gpt-4-turbo" checked>
+                                    <span class="model-label" style="--model-color: #059669;">
+                                        <span class="model-dot"></span>
+                                        GPT-4 Turbo
+                                    </span>
+                                </label>
+                                <label class="model-checkbox">
+                                    <input type="checkbox" value="llama-70b" checked>
+                                    <span class="model-label" style="--model-color: #7C3AED;">
+                                        <span class="model-dot"></span>
+                                        Llama 3.1 70B
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question Input -->
+                    <div class="card" style="margin-bottom: var(--space-6);">
+                        <div class="card-header">
+                            <div class="card-title">Your Question</div>
+                        </div>
+                        <div class="card-content">
+                            <textarea id="counselQuestion" class="counsel-textarea" placeholder="Ask your question to compare responses across models..."></textarea>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4);">
+                                <span class="text-secondary" id="charCount">0 / 2000</span>
+                                <button class="btn btn-primary" id="askModelsBtn" onclick="askModels()">
+                                    <span>⚡</span> Ask Selected Models
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="counsel-loading" id="counselLoading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Consulting the models...</p>
+                    </div>
+
+                    <!-- Results Grid -->
+                    <div class="counsel-results" id="counselResults" style="display: none;">
+                        <div class="results-header">
+                            <h3>Model Responses</h3>
+                            <span class="text-secondary" id="responseTime"></span>
+                        </div>
+                        <div class="model-responses-grid" id="modelResponsesGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Combined Answer -->
+                    <div class="card counsel-combined" id="counselCombined" style="display: none; margin-top: var(--space-6);">
+                        <div class="card-header">
+                            <div class="card-title">✨ Best Combined Answer</div>
+                        </div>
+                        <div class="card-content" id="combinedContent">
+                            <!-- Populated by JS -->
+                        </div>
                     </div>
                 </div>
 
@@ -3154,6 +3493,7 @@
 
         const SECTION_NAMES = {
             'mission-control': 'Mission Control',
+            'model-counsel': 'Model Counsel',
             'projects': 'Projects Board',
             'markets': 'Market Dashboard',
             'daily-feed': 'Daily Feed',
@@ -3164,6 +3504,7 @@
 
         const BREADCRUMB_MAP = {
             'mission-control': 'Overview',
+            'model-counsel': 'AI Comparison',
             'projects': 'All Projects',
             'markets': 'Market Intel',
             'daily-feed': 'Activity Log',
@@ -3467,6 +3808,7 @@
 
         const commands = [
             { icon: '⌘', text: 'Mission Control', hint: 'Overview', kbd: '1', action: () => navigateTo('mission-control') },
+            { icon: '⚡', text: 'Model Counsel', hint: 'AI comparison', kbd: 'M', action: () => navigateTo('model-counsel') },
             { icon: '◆', text: 'Projects Board', hint: 'All projects', kbd: '2', action: () => navigateTo('projects') },
             { icon: '◈', text: 'Market Dashboard', hint: 'Bobby\'s intel', kbd: '3', action: () => navigateTo('markets') },
             { icon: '▸', text: 'Daily Feed', hint: 'Today\'s activity', kbd: '4', action: () => navigateTo('daily-feed') },
@@ -3654,6 +3996,151 @@
                 sessionStorage.setItem('dbtech-os-welcomed', '1');
             }, 800);
         }
+
+        // ═══ MODEL COUNSEL ═══════════════════════════
+        
+        // Character counter for question textarea
+        const counselQuestion = document.getElementById('counselQuestion');
+        const charCount = document.getElementById('charCount');
+        
+        if (counselQuestion && charCount) {
+            counselQuestion.addEventListener('input', () => {
+                const len = counselQuestion.value.length;
+                charCount.textContent = `${len} / 2000`;
+                if (len > 2000) {
+                    counselQuestion.value = counselQuestion.value.substring(0, 2000);
+                    charCount.textContent = '2000 / 2000';
+                }
+            });
+        }
+
+        async function askModels() {
+            const question = document.getElementById('counselQuestion').value.trim();
+            if (!question) {
+                showToast('Missing Question', 'Please enter a question to ask the models.', 'warning');
+                return;
+            }
+
+            // Get selected models
+            const checkboxes = document.querySelectorAll('#modelSelection input[type="checkbox"]:checked');
+            const selectedModels = Array.from(checkboxes).map(cb => cb.value);
+
+            if (selectedModels.length === 0) {
+                showToast('No Models Selected', 'Please select at least one model to query.', 'warning');
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('counselLoading').style.display = 'flex';
+            document.getElementById('counselResults').style.display = 'none';
+            document.getElementById('counselCombined').style.display = 'none';
+            document.getElementById('askModelsBtn').disabled = true;
+
+            const startTime = Date.now();
+
+            try {
+                const response = await fetch('/api/model-counsel', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question, models: selectedModels })
+                });
+
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || 'API request failed');
+                }
+
+                const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
+                document.getElementById('responseTime').textContent = `Completed in ${totalTime}s`;
+
+                // Render responses
+                renderModelResponses(data.responses);
+                
+                // Generate combined answer if multiple responses
+                const successfulResponses = data.responses.filter(r => r.content && !r.error);
+                if (successfulResponses.length > 1) {
+                    generateCombinedAnswer(question, successfulResponses);
+                }
+
+                document.getElementById('counselResults').style.display = 'block';
+                showToast('Models Consulted', `Received ${successfulResponses.length} responses.`, 'accent');
+
+            } catch (error) {
+                console.error('Model Counsel error:', error);
+                showToast('Error', error.message, 'danger');
+            } finally {
+                document.getElementById('counselLoading').style.display = 'none';
+                document.getElementById('askModelsBtn').disabled = false;
+            }
+        }
+
+        function renderModelResponses(responses) {
+            const grid = document.getElementById('modelResponsesGrid');
+            
+            grid.innerHTML = responses.map(r => `
+                <div class="model-response-card">
+                    <div class="model-response-header">
+                        <div class="model-response-name" style="--model-color: ${r.color};">
+                            <span class="model-dot" style="--model-color: ${r.color};"></span>
+                            ${r.name}
+                        </div>
+                        <div class="model-response-meta">
+                            ${r.tokens ? `<span>${r.tokens.input + r.tokens.output} tokens</span>` : ''}
+                            ${r.latencyMs ? `<span>${(r.latencyMs / 1000).toFixed(1)}s</span>` : ''}
+                        </div>
+                    </div>
+                    ${r.error 
+                        ? `<div class="model-response-error">Error: ${r.error}</div>`
+                        : `<div class="model-response-content">${formatResponse(r.content)}</div>`
+                    }
+                </div>
+            `).join('');
+        }
+
+        function formatResponse(content) {
+            if (!content) return '';
+            // Basic markdown-like formatting
+            return content
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`(.*?)`/g, '<code>$1</code>');
+        }
+
+        async function generateCombinedAnswer(question, responses) {
+            // Use the first successful model to generate a synthesis
+            const synthesis = `Based on ${responses.length} model responses, here are the key insights:\n\n` +
+                responses.map((r, i) => `• ${r.name}: ${r.content.substring(0, 200)}...`).join('\n\n');
+            
+            document.getElementById('combinedContent').innerHTML = `
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-4);">
+                    Synthesis of ${responses.length} model responses:
+                </p>
+                <div style="display: grid; gap: var(--space-3);">
+                    ${responses.map(r => `
+                        <div style="padding: var(--space-3); background: var(--bg-elevated); border-radius: var(--radius-sm); border-left: 3px solid ${r.color};">
+                            <strong style="color: ${r.color};">${r.name}</strong>
+                            <p style="margin-top: var(--space-2); font-size: 13px;">${r.content.substring(0, 300)}${r.content.length > 300 ? '...' : ''}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            document.getElementById('counselCombined').style.display = 'block';
+        }
+
+        // Keyboard shortcut for Model Counsel (M key)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'm' && !e.ctrlKey && !e.metaKey && !e.altKey && 
+                document.activeElement.tagName !== 'INPUT' && 
+                document.activeElement.tagName !== 'TEXTAREA') {
+                navigateTo('model-counsel');
+            }
+        });
     </script>
 </body>
 </html>
