@@ -2913,10 +2913,34 @@
                     </div>
                 </div>
 
-                <!-- 02 AGENTS -->
+                <!-- 02 DASHBOARD -->
+                <div class="nav-section-expandable" data-section-group="dashboard">
+                    <div class="nav-section-header">
+                        <span class="nav-section-number">02</span>
+                        <span class="nav-section-title">Dashboard</span>
+                        <span class="nav-section-toggle">+</span>
+                    </div>
+                    <div class="nav-subitems">
+                        <div class="nav-subitem" data-section="daily-feed">
+                            <span class="nav-subitem-icon">▸</span>
+                            <span>DAILY FEED</span>
+                        </div>
+                        <div class="nav-subitem" data-section="projects">
+                            <span class="nav-subitem-icon">◆</span>
+                            <span>PROJECTS</span>
+                            <span class="nav-subitem-badge">23</span>
+                        </div>
+                        <div class="nav-subitem" data-section="markets">
+                            <span class="nav-subitem-icon">◈</span>
+                            <span>MARKETS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 AGENTS -->
                 <div class="nav-section-expandable expanded" data-section-group="agents">
                     <div class="nav-section-header expanded">
-                        <span class="nav-section-number">02</span>
+                        <span class="nav-section-number">03</span>
                         <span class="nav-section-title">Agents</span>
                         <span class="nav-section-badge">[ 9 ]</span>
                         <span class="nav-section-toggle">−</span>
@@ -2941,11 +2965,11 @@
                     </div>
                 </div>
 
-                <!-- 03 KNOWLEDGE BASE -->
-                <div class="nav-section-expandable" data-section-group="knowledge">
+                <!-- 04 INTEL -->
+                <div class="nav-section-expandable" data-section-group="intel">
                     <div class="nav-section-header">
-                        <span class="nav-section-number">03</span>
-                        <span class="nav-section-title">Knowledge Base</span>
+                        <span class="nav-section-number">04</span>
+                        <span class="nav-section-title">Intel</span>
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
@@ -2964,19 +2988,14 @@
                     </div>
                 </div>
 
-                <!-- 04 OPERATIONS -->
+                <!-- 05 OPERATIONS -->
                 <div class="nav-section-expandable" data-section-group="operations">
                     <div class="nav-section-header">
-                        <span class="nav-section-number">04</span>
+                        <span class="nav-section-number">05</span>
                         <span class="nav-section-title">Operations</span>
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="projects">
-                            <span class="nav-subitem-icon">◆</span>
-                            <span>PROJECTS</span>
-                            <span class="nav-subitem-badge">23</span>
-                        </div>
                         <div class="nav-subitem" data-section="kanban">
                             <span class="nav-subitem-icon">▦</span>
                             <span>KANBAN</span>
@@ -3000,21 +3019,21 @@
                     </div>
                 </div>
 
-                <!-- 05 SYSTEM CONFIG -->
+                <!-- 06 SYSTEM CONFIG -->
                 <div class="nav-section-expandable" data-section-group="system">
                     <div class="nav-section-header">
-                        <span class="nav-section-number">05</span>
+                        <span class="nav-section-number">06</span>
                         <span class="nav-section-title">System Config</span>
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="markets">
-                            <span class="nav-subitem-icon">◈</span>
-                            <span>MARKETS</span>
+                        <div class="nav-subitem" data-section="brand-kit">
+                            <span class="nav-subitem-icon">🎨</span>
+                            <span>BRAND KIT</span>
                         </div>
-                        <div class="nav-subitem" data-section="daily-feed">
-                            <span class="nav-subitem-icon">▸</span>
-                            <span>DAILY FEED</span>
+                        <div class="nav-subitem" data-section="brand-specs">
+                            <span class="nav-subitem-icon">📐</span>
+                            <span>BRAND SPECS</span>
                         </div>
                         <div class="nav-subitem" data-section="quick-links">
                             <span class="nav-subitem-icon">↗</span>
@@ -4272,6 +4291,9 @@
 
         const SECTION_NAMES = {
             'mission-control': 'Command Center',
+            'daily-feed': 'Daily Feed',
+            'projects': 'Projects Board',
+            'markets': 'Market Dashboard',
             'model-counsel': 'Model Counsel',
             'roundtable': 'Roundtable',
             'agent-assist': 'Agent Assist',
@@ -4279,35 +4301,36 @@
             'memory-bank': 'Memory Bank',
             'dna': 'DNA',
             'skills-inventory': 'Skills Inventory',
-            'projects': 'Projects Board',
             'kanban': 'Kanban Board',
             'goals-tracker': 'Goals Tracker',
             'master-todo': 'Master Todo',
             'activity-dashboard': 'Activity Dashboard',
             'schedule-center': 'Schedule Center',
-            'markets': 'Market Dashboard',
-            'daily-feed': 'Daily Feed',
+            'brand-kit': 'Brand Kit',
+            'brand-specs': 'Brand Specs',
             'quick-links': 'Quick Links',
             'settings': 'Settings'
         };
 
         const BREADCRUMB_MAP = {
             'mission-control': 'Overview',
+            'daily-feed': 'Dashboard > Feed',
+            'projects': 'Dashboard > Projects',
+            'markets': 'Dashboard > Markets',
             'model-counsel': 'Agents > Model Counsel',
             'roundtable': 'Agents > Roundtable',
             'agent-assist': 'Agents > Assist',
             'ideas-vault': 'Agents > Ideas',
-            'memory-bank': 'Knowledge > Memory',
-            'dna': 'Knowledge > DNA',
-            'skills-inventory': 'Knowledge > Skills',
-            'projects': 'Operations > Projects',
+            'memory-bank': 'Intel > Memory',
+            'dna': 'Intel > DNA',
+            'skills-inventory': 'Intel > Skills',
             'kanban': 'Operations > Kanban',
             'goals-tracker': 'Operations > Goals',
             'master-todo': 'Operations > Todo',
             'activity-dashboard': 'Operations > Activity',
             'schedule-center': 'Operations > Schedule',
-            'markets': 'System > Markets',
-            'daily-feed': 'System > Feed',
+            'brand-kit': 'System > Brand Kit',
+            'brand-specs': 'System > Brand Specs',
             'quick-links': 'System > Links',
             'settings': 'System > Settings'
         };
