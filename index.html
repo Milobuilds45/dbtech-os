@@ -2942,25 +2942,30 @@
                     </div>
                 </div>
 
-                <!-- 03 KNOWLEDGE BASE -->
-                <div class="nav-section-expandable" data-section-group="knowledge">
+                <!-- 03 INTEL -->
+                <div class="nav-section-expandable" data-section-group="intel">
                     <div class="nav-section-header">
                         <span class="nav-section-number">03</span>
-                        <span class="nav-section-title">Knowledge Base</span>
+                        <span class="nav-section-title">Intel</span>
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="memory-bank">
-                            <span class="nav-subitem-icon">⬡</span>
-                            <span>MEMORY BANK</span>
+                        <div class="nav-subitem" data-section="morning-brief">
+                            <span class="nav-subitem-icon">☀</span>
+                            <span>MORNING BRIEF</span>
                         </div>
-                        <div class="nav-subitem" data-section="dna">
-                            <span class="nav-subitem-icon">⎈</span>
-                            <span>DNA</span>
+                        <div class="nav-subitem" data-section="markets">
+                            <span class="nav-subitem-icon">◈</span>
+                            <span>MARKETS</span>
                         </div>
-                        <div class="nav-subitem" data-section="skills-inventory">
-                            <span class="nav-subitem-icon">⧉</span>
-                            <span>SKILLS INVENTORY</span>
+                        <div class="nav-subitem" data-section="projects">
+                            <span class="nav-subitem-icon">◆</span>
+                            <span>PROJECTS</span>
+                            <span class="nav-subitem-badge">23</span>
+                        </div>
+                        <div class="nav-subitem" data-section="polymarkets">
+                            <span class="nav-subitem-icon">📊</span>
+                            <span>POLYMARKETS</span>
                         </div>
                     </div>
                 </div>
@@ -2973,14 +2978,13 @@
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="projects">
-                            <span class="nav-subitem-icon">◆</span>
-                            <span>PROJECTS</span>
-                            <span class="nav-subitem-badge">23</span>
+                        <div class="nav-subitem" data-section="daily-feed">
+                            <span class="nav-subitem-icon">▸</span>
+                            <span>DAILY FEED</span>
                         </div>
                         <div class="nav-subitem" data-section="kanban">
                             <span class="nav-subitem-icon">▦</span>
-                            <span>KANBAN</span>
+                            <span>TASK MANAGER</span>
                         </div>
                         <div class="nav-subitem" data-section="goals-tracker">
                             <span class="nav-subitem-icon">◈</span>
@@ -3009,13 +3013,17 @@
                             <span class="nav-subitem-icon">↗</span>
                             <span>QUICK LINKS</span>
                         </div>
-                        <div class="nav-subitem" data-section="markets">
-                            <span class="nav-subitem-icon">◈</span>
-                            <span>MARKETS</span>
+                        <div class="nav-subitem" data-section="memory-bank">
+                            <span class="nav-subitem-icon">⬡</span>
+                            <span>MEMORY BANK</span>
                         </div>
-                        <div class="nav-subitem" data-section="daily-feed">
-                            <span class="nav-subitem-icon">▸</span>
-                            <span>DAILY FEED</span>
+                        <div class="nav-subitem" data-section="dna">
+                            <span class="nav-subitem-icon">⎈</span>
+                            <span>DNA</span>
+                        </div>
+                        <div class="nav-subitem" data-section="skills-inventory">
+                            <span class="nav-subitem-icon">⧉</span>
+                            <span>SKILLS</span>
                         </div>
                     </div>
                 </div>
@@ -3295,6 +3303,21 @@
                     </div>
                 </div>
 
+                <!-- ═══ MORNING BRIEF ═══ -->
+                <div class="section" id="section-morning-brief">
+                    <div class="section-header">
+                        <div>
+                            <h1 class="section-title">Morning Brief</h1>
+                            <p class="section-subtitle">Daily intelligence digest from the agent fleet</p>
+                        </div>
+                    </div>
+                    <div class="card" style="padding: var(--space-8); text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: var(--space-4);">☀</div>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: var(--space-2);">Coming Soon</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Automated morning briefing with market overview, calendar, priorities, and overnight updates from agents.</p>
+                    </div>
+                </div>
+
                 <!-- ═══ MARKETS ═══ -->
                 <div class="section" id="section-markets">
                     <div class="section-header">
@@ -3335,6 +3358,21 @@
                                 <p style="font-size: 12px; color: var(--text-tertiary); margin-top: var(--space-3);">Derek's daily market newsletter analyzing signal from noise in financial markets.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- ═══ POLYMARKETS ═══ -->
+                <div class="section" id="section-polymarkets">
+                    <div class="section-header">
+                        <div>
+                            <h1 class="section-title">Polymarkets</h1>
+                            <p class="section-subtitle">Prediction market intelligence and positions</p>
+                        </div>
+                    </div>
+                    <div class="card" style="padding: var(--space-8); text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: var(--space-4);">📊</div>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: var(--space-2);">Coming Soon</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Track prediction market positions, odds, and trends from Polymarket and other prediction platforms.</p>
                     </div>
                 </div>
 
@@ -4298,18 +4336,20 @@
             'model-counsel': 'Model Counsel',
             'roundtable': 'Agent Roundtable',
             'agent-assist': 'Agent Assist',
-            'projects': 'Projects Board',
+            'morning-brief': 'Morning Brief',
             'markets': 'Market Dashboard',
+            'projects': 'Projects Board',
+            'polymarkets': 'Polymarkets',
             'daily-feed': 'Daily Feed',
-            'quick-links': 'Quick Links',
-            'kanban': 'Kanban Board',
-            'ideas-vault': 'Agent Ideas',
-            'memory-bank': 'Memory Bank',
-            'dna': 'DNA',
-            'skills-inventory': 'Skills Inventory',
+            'kanban': 'Task Manager',
             'goals-tracker': 'Goals Tracker',
             'master-todo': 'Master Todo',
             'settings': 'Settings',
+            'quick-links': 'Quick Links',
+            'memory-bank': 'Memory Bank',
+            'dna': 'DNA',
+            'skills-inventory': 'Skills Inventory',
+            'ideas-vault': 'Agent Ideas',
             'activity-dashboard': 'Activity Dashboard',
             'schedule-center': 'Schedule Center'
         };
@@ -4319,18 +4359,20 @@
             'model-counsel': 'Agents > Model Counsel',
             'roundtable': 'Agents > Roundtable',
             'agent-assist': 'Agents > Assist',
-            'projects': 'Operations > Projects',
-            'markets': 'System > Markets',
-            'daily-feed': 'System > Feed',
-            'quick-links': 'System > Links',
-            'kanban': 'Operations > Kanban',
-            'ideas-vault': 'Agents > Ideas',
-            'memory-bank': 'Knowledge > Memory',
-            'dna': 'Knowledge > DNA',
-            'skills-inventory': 'Knowledge > Skills',
+            'morning-brief': 'Intel > Morning Brief',
+            'markets': 'Intel > Markets',
+            'projects': 'Intel > Projects',
+            'polymarkets': 'Intel > Polymarkets',
+            'daily-feed': 'Operations > Feed',
+            'kanban': 'Operations > Tasks',
             'goals-tracker': 'Operations > Goals',
             'master-todo': 'Operations > Todo',
             'settings': 'System > Settings',
+            'quick-links': 'System > Links',
+            'memory-bank': 'System > Memory',
+            'dna': 'System > DNA',
+            'skills-inventory': 'System > Skills',
+            'ideas-vault': 'Agents > Ideas',
             'activity-dashboard': 'Activity',
             'schedule-center': 'Schedule'
         };
