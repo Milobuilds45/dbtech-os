@@ -284,13 +284,11 @@
             z-index: 1;
         }
 
-        /* ═══ SIDEBAR ═══ */
+        /* ═══ SIDEBAR — TACTICAL COMMAND CENTER ═══ */
         .sidebar {
-            width: 260px;
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-right: 1px solid var(--border);
+            width: 280px;
+            background: #0a0a0f;
+            border-right: 1px solid rgba(245, 158, 11, 0.15);
             display: flex;
             flex-direction: column;
             position: fixed;
@@ -302,8 +300,8 @@
         }
 
         .sidebar-header {
-            padding: var(--space-6);
-            border-bottom: 1px solid var(--border);
+            padding: var(--space-5) var(--space-5);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.15);
         }
 
         .os-logo {
@@ -313,27 +311,26 @@
         }
 
         .os-logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-accent);
-            border-radius: var(--radius-md);
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 13px;
-            color: white;
+            font-size: 12px;
+            color: #0a0a0f;
             letter-spacing: -0.5px;
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-glow-sm);
         }
 
         .os-logo-icon::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%);
         }
 
         .os-logo-text {
@@ -343,86 +340,239 @@
 
         .os-logo-text .title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
-            letter-spacing: -0.3px;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            letter-spacing: 1px;
+            color: #f5f5f5;
         }
 
         .os-logo-text .subtitle {
+            font-size: 9px;
+            font-weight: 500;
+            color: rgba(245, 158, 11, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* System Status Bar */
+        .system-status-bar {
+            padding: var(--space-4) var(--space-5);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .system-status-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-3);
+        }
+
+        .system-status-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .system-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             font-weight: 600;
-            color: var(--text-tertiary);
+            color: #22c55e;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .system-status-indicator::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .system-metrics {
+            display: flex;
+            gap: var(--space-4);
+        }
+
+        .system-metric {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .system-metric span {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .sidebar-nav {
             flex: 1;
-            padding: var(--space-4) var(--space-3);
+            padding: var(--space-3) 0;
             overflow-y: auto;
         }
 
-        .nav-section {
-            margin-bottom: var(--space-6);
+        /* Expandable Nav Section */
+        .nav-section-expandable {
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
         }
 
-        .nav-section-label {
+        .nav-section-header {
+            display: flex;
+            align-items: center;
+            padding: var(--space-3) var(--space-5);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            user-select: none;
+        }
+
+        .nav-section-header:hover {
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .nav-section-header.active {
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .nav-section-number {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-tertiary);
-            padding: 0 var(--space-3);
-            margin-bottom: var(--space-2);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.3);
+            width: 24px;
+            flex-shrink: 0;
         }
 
+        .nav-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #f5f5f5;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+
+        .nav-section-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.4);
+            margin-right: var(--space-3);
+        }
+
+        .nav-section-toggle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            width: 20px;
+            text-align: center;
+            transition: transform var(--transition-fast);
+        }
+
+        .nav-section-header.expanded .nav-section-toggle {
+            color: #f59e0b;
+        }
+
+        /* Sub-items */
+        .nav-subitems {
+            display: none;
+            padding: var(--space-2) 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-section-expandable.expanded .nav-subitems {
+            display: block;
+        }
+
+        .nav-subitem {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-2) var(--space-5) var(--space-2) 48px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .nav-subitem:hover {
+            background: rgba(245, 158, 11, 0.08);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-subitem.active {
+            background: #f59e0b;
+            color: #0a0a0f;
+        }
+
+        .nav-subitem-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .nav-subitem.active .nav-subitem-icon {
+            opacity: 1;
+        }
+
+        .nav-subitem-badge {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            padding: 1px 6px;
+            border-radius: 4px;
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .nav-subitem.active .nav-subitem-badge {
+            background: rgba(10, 10, 15, 0.3);
+            color: #0a0a0f;
+        }
+
+        /* Legacy nav-item for non-expandable items */
         .nav-item {
             display: flex;
             align-items: center;
             gap: var(--space-3);
-            padding: var(--space-3) var(--space-3);
-            border-radius: var(--radius-sm);
+            padding: var(--space-3) var(--space-5);
             cursor: pointer;
             transition: all var(--transition-fast);
-            color: var(--text-secondary);
-            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
             font-weight: 500;
             position: relative;
             user-select: none;
         }
 
         .nav-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--text-primary);
+            background: rgba(245, 158, 11, 0.05);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .nav-item.active {
-            background: var(--accent-muted);
-            color: var(--accent);
-        }
-
-        .nav-item.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 3px;
-            height: 16px;
-            background: var(--gradient-accent);
-            border-radius: 0 2px 2px 0;
+            background: #f59e0b;
+            color: #0a0a0f;
         }
 
         .nav-kbd {
             margin-left: auto;
             font-family: 'JetBrains Mono', monospace;
             font-size: 9px;
-            color: var(--text-tertiary);
-            opacity: 0.5;
+            color: rgba(255, 255, 255, 0.3);
         }
 
         .nav-icon {
@@ -431,42 +581,44 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 13px;
             flex-shrink: 0;
+            opacity: 0.7;
+        }
+
+        .nav-item.active .nav-icon {
+            opacity: 1;
         }
 
         .nav-badge {
             margin-left: auto;
-            background: var(--gradient-accent);
-            color: white;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 10px;
             font-weight: 600;
-            padding: 1px 7px;
-            border-radius: 10px;
-            min-width: 18px;
-            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
         }
 
         .sidebar-footer {
-            padding: var(--space-4) var(--space-6);
-            border-top: 1px solid var(--border);
+            padding: var(--space-4) var(--space-5);
+            border-top: 1px solid rgba(245, 158, 11, 0.15);
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .sidebar-greeting {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
-            color: var(--text-secondary);
+            color: rgba(255, 255, 255, 0.5);
             margin-bottom: var(--space-1);
         }
 
         .sidebar-greeting strong {
-            color: var(--text-primary);
+            color: #f5f5f5;
         }
 
         .sidebar-time {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--text-tertiary);
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
         }
 
         .sidebar-status {
@@ -474,8 +626,8 @@
             align-items: center;
             gap: var(--space-2);
             margin-top: var(--space-2);
-            font-size: 11px;
-            color: var(--status-online);
+            font-size: 10px;
+            color: #22c55e;
         }
 
         .status-dot {
@@ -494,7 +646,7 @@
         /* ═══ MAIN ═══ */
         .main {
             flex: 1;
-            margin-left: 260px;
+            margin-left: 280px;
             min-height: 100vh;
         }
 
@@ -2733,97 +2885,142 @@
                     <div class="os-logo-icon">DB</div>
                     <div class="os-logo-text">
                         <span class="title">DB TECH OS</span>
-                        <span class="subtitle">Command Center</span>
+                        <span class="subtitle">MISSION CONTROL // V.2.4</span>
                     </div>
                 </div>
             </div>
+
+            <!-- System Status Bar -->
+            <div class="system-status-bar">
+                <div class="system-status-header">
+                    <span class="system-status-label">System Status</span>
+                    <span class="system-status-indicator">OPERATIONAL</span>
+                </div>
+                <div class="system-metrics">
+                    <span class="system-metric">CPU: <span id="cpuMetric">12%</span></span>
+                    <span class="system-metric">MEM: <span id="memMetric">44%</span></span>
+                    <span class="system-metric">DISK: <span id="diskMetric">88%</span></span>
+                </div>
+            </div>
+
             <nav class="sidebar-nav">
-                <div class="nav-section">
-                    <div class="nav-section-label">Main</div>
-                    <div class="nav-item active" data-section="mission-control">
-                        <span class="nav-icon">⌘</span>
-                        <span>Mission Control</span>
-                        <span class="nav-kbd">1</span>
-                    </div>
-                    <div class="nav-item" data-section="model-counsel">
-                        <span class="nav-icon">⚡</span>
-                        <span>Model Counsel</span>
-                        <span class="nav-kbd">M</span>
-                    </div>
-                    <div class="nav-item" data-section="projects">
-                        <span class="nav-icon">◆</span>
-                        <span>Projects</span>
-                        <span class="nav-badge">23</span>
-                    </div>
-                    <div class="nav-item" data-section="markets">
-                        <span class="nav-icon">◈</span>
-                        <span>Markets</span>
-                        <span class="nav-kbd">3</span>
-                    </div>
-                    <div class="nav-item" data-section="daily-feed">
-                        <span class="nav-icon">▸</span>
-                        <span>Daily Feed</span>
-                        <span class="nav-kbd">4</span>
-                    </div>
-                </div>
-                <div class="nav-section">
-                    <div class="nav-section-label">Tools</div>
-                    <div class="nav-item" data-section="quick-links">
-                        <span class="nav-icon">↗</span>
-                        <span>Quick Links</span>
-                        <span class="nav-kbd">5</span>
-                    </div>
-                    <div class="nav-item" data-section="kanban">
-                        <span class="nav-icon">▦</span>
-                        <span>Kanban</span>
-                        <span class="nav-kbd">6</span>
-                    </div>
-                    <div class="nav-item" data-section="ideas-vault">
-                        <span class="nav-icon">✦</span>
-                        <span>Ideas Vault</span>
-                        <span class="nav-kbd">7</span>
-                    </div>
-                </div>
-                <div class="nav-section">
-                    <div class="nav-section-label">Operations</div>
-                    <div class="nav-item" data-section="activity-dashboard">
-                        <span class="nav-icon">◎</span>
-                        <span>Activity Dashboard</span>
-                    </div>
-                    <div class="nav-item" data-section="dna">
-                        <span class="nav-icon">⎈</span>
-                        <span>DNA</span>
-                    </div>
-                    <div class="nav-item" data-section="memory-bank">
-                        <span class="nav-icon">⬡</span>
-                        <span>Memory Bank</span>
-                    </div>
-                    <div class="nav-item" data-section="skills-inventory">
-                        <span class="nav-icon">⧉</span>
-                        <span>Skills Inventory</span>
-                    </div>
-                    <div class="nav-item" data-section="schedule-center">
-                        <span class="nav-icon">◷</span>
-                        <span>Schedule Center</span>
-                    </div>
-                    <div class="nav-item" data-section="goals-tracker">
-                        <span class="nav-icon">◈</span>
-                        <span>Goals Tracker</span>
-                    </div>
-                    <div class="nav-item" data-section="master-todo">
-                        <span class="nav-icon">☑</span>
-                        <span>Master Todo</span>
+                <!-- 01 COMMAND CENTER -->
+                <div class="nav-section-expandable" data-section-group="command-center">
+                    <div class="nav-section-header active" data-section="mission-control">
+                        <span class="nav-section-number">01</span>
+                        <span class="nav-section-title">Command Center</span>
+                        <span class="nav-section-toggle">+</span>
                     </div>
                 </div>
 
-                <!-- Settings -->
-                <div class="nav-section" style="margin-top: auto; border-top: 1px solid var(--border); padding-top: var(--space-4);">
-                    <div class="nav-item" data-section="settings">
-                        <span class="nav-icon">⚙</span>
-                        <span>Settings</span>
+                <!-- 02 AGENTS -->
+                <div class="nav-section-expandable expanded" data-section-group="agents">
+                    <div class="nav-section-header expanded">
+                        <span class="nav-section-number">02</span>
+                        <span class="nav-section-title">Agents</span>
+                        <span class="nav-section-badge">[ 9 ]</span>
+                        <span class="nav-section-toggle">−</span>
+                    </div>
+                    <div class="nav-subitems">
+                        <div class="nav-subitem" data-section="model-counsel">
+                            <span class="nav-subitem-icon">🔨</span>
+                            <span>MODEL COUNSEL</span>
+                        </div>
+                        <div class="nav-subitem" data-section="roundtable">
+                            <span class="nav-subitem-icon">👥</span>
+                            <span>ROUNDTABLE</span>
+                        </div>
+                        <div class="nav-subitem" data-section="agent-assist">
+                            <span class="nav-subitem-icon">>_</span>
+                            <span>AGENT ASSIST</span>
+                            <span class="nav-subitem-badge">⊕</span>
+                        </div>
+                        <div class="nav-subitem" data-section="ideas-vault">
+                            <span class="nav-subitem-icon">💡</span>
+                            <span>AGENT IDEAS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 KNOWLEDGE BASE -->
+                <div class="nav-section-expandable" data-section-group="knowledge">
+                    <div class="nav-section-header">
+                        <span class="nav-section-number">03</span>
+                        <span class="nav-section-title">Knowledge Base</span>
+                        <span class="nav-section-toggle">+</span>
+                    </div>
+                    <div class="nav-subitems">
+                        <div class="nav-subitem" data-section="memory-bank">
+                            <span class="nav-subitem-icon">⬡</span>
+                            <span>MEMORY BANK</span>
+                        </div>
+                        <div class="nav-subitem" data-section="dna">
+                            <span class="nav-subitem-icon">⎈</span>
+                            <span>DNA</span>
+                        </div>
+                        <div class="nav-subitem" data-section="skills-inventory">
+                            <span class="nav-subitem-icon">⧉</span>
+                            <span>SKILLS INVENTORY</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 04 OPERATIONS -->
+                <div class="nav-section-expandable" data-section-group="operations">
+                    <div class="nav-section-header">
+                        <span class="nav-section-number">04</span>
+                        <span class="nav-section-title">Operations</span>
+                        <span class="nav-section-toggle">+</span>
+                    </div>
+                    <div class="nav-subitems">
+                        <div class="nav-subitem" data-section="projects">
+                            <span class="nav-subitem-icon">◆</span>
+                            <span>PROJECTS</span>
+                            <span class="nav-subitem-badge">23</span>
+                        </div>
+                        <div class="nav-subitem" data-section="kanban">
+                            <span class="nav-subitem-icon">▦</span>
+                            <span>KANBAN</span>
+                        </div>
+                        <div class="nav-subitem" data-section="goals-tracker">
+                            <span class="nav-subitem-icon">◈</span>
+                            <span>GOALS TRACKER</span>
+                        </div>
+                        <div class="nav-subitem" data-section="master-todo">
+                            <span class="nav-subitem-icon">☑</span>
+                            <span>MASTER TODO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 05 SYSTEM CONFIG -->
+                <div class="nav-section-expandable" data-section-group="system">
+                    <div class="nav-section-header">
+                        <span class="nav-section-number">05</span>
+                        <span class="nav-section-title">System Config</span>
+                        <span class="nav-section-toggle">+</span>
+                    </div>
+                    <div class="nav-subitems">
+                        <div class="nav-subitem" data-section="settings">
+                            <span class="nav-subitem-icon">⚙</span>
+                            <span>SETTINGS</span>
+                        </div>
+                        <div class="nav-subitem" data-section="quick-links">
+                            <span class="nav-subitem-icon">↗</span>
+                            <span>QUICK LINKS</span>
+                        </div>
+                        <div class="nav-subitem" data-section="markets">
+                            <span class="nav-subitem-icon">◈</span>
+                            <span>MARKETS</span>
+                        </div>
+                        <div class="nav-subitem" data-section="daily-feed">
+                            <span class="nav-subitem-icon">▸</span>
+                            <span>DAILY FEED</span>
+                        </div>
                     </div>
                 </div>
             </nav>
+
             <div class="sidebar-footer">
                 <div class="sidebar-greeting" id="sidebarGreeting">Good evening, <strong>Derek</strong></div>
                 <div class="sidebar-time" id="sidebarTime">--:-- --</div>
@@ -3045,6 +3242,36 @@
                         <div class="card-content" id="combinedContent">
                             <!-- Populated by JS -->
                         </div>
+                    </div>
+                </div>
+
+                <!-- ═══ ROUNDTABLE ═══ -->
+                <div class="section" id="section-roundtable">
+                    <div class="section-header">
+                        <div>
+                            <h1 class="section-title">Agent Roundtable</h1>
+                            <p class="section-subtitle">Multi-agent collaboration and discussion</p>
+                        </div>
+                    </div>
+                    <div class="card" style="padding: var(--space-8); text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: var(--space-4);">👥</div>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: var(--space-2);">Coming Soon</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Collaborative agent discussions where multiple AI agents debate and refine solutions together.</p>
+                    </div>
+                </div>
+
+                <!-- ═══ AGENT ASSIST ═══ -->
+                <div class="section" id="section-agent-assist">
+                    <div class="section-header">
+                        <div>
+                            <h1 class="section-title">Agent Assist</h1>
+                            <p class="section-subtitle">Direct agent command interface</p>
+                        </div>
+                    </div>
+                    <div class="card" style="padding: var(--space-8); text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: var(--space-4);">>_</div>
+                        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin-bottom: var(--space-2);">Terminal Interface</h3>
+                        <p style="color: var(--text-secondary); font-size: 14px;">Direct command-line interface for agent operations and task execution.</p>
                     </div>
                 </div>
 
@@ -4067,31 +4294,61 @@
         // ─── NAVIGATION (HASH ROUTING) ──────────────
 
         const SECTION_NAMES = {
-            'mission-control': 'Mission Control',
+            'mission-control': 'Command Center',
             'model-counsel': 'Model Counsel',
+            'roundtable': 'Agent Roundtable',
+            'agent-assist': 'Agent Assist',
             'projects': 'Projects Board',
             'markets': 'Market Dashboard',
             'daily-feed': 'Daily Feed',
             'quick-links': 'Quick Links',
             'kanban': 'Kanban Board',
-            'ideas-vault': 'Ideas Vault'
+            'ideas-vault': 'Agent Ideas',
+            'memory-bank': 'Memory Bank',
+            'dna': 'DNA',
+            'skills-inventory': 'Skills Inventory',
+            'goals-tracker': 'Goals Tracker',
+            'master-todo': 'Master Todo',
+            'settings': 'Settings',
+            'activity-dashboard': 'Activity Dashboard',
+            'schedule-center': 'Schedule Center'
         };
 
         const BREADCRUMB_MAP = {
             'mission-control': 'Overview',
-            'model-counsel': 'AI Comparison',
-            'projects': 'All Projects',
-            'markets': 'Market Intel',
-            'daily-feed': 'Activity Log',
-            'quick-links': 'Links & Tools',
-            'kanban': 'Task Board',
-            'ideas-vault': 'Idea Tracker'
+            'model-counsel': 'Agents > Model Counsel',
+            'roundtable': 'Agents > Roundtable',
+            'agent-assist': 'Agents > Assist',
+            'projects': 'Operations > Projects',
+            'markets': 'System > Markets',
+            'daily-feed': 'System > Feed',
+            'quick-links': 'System > Links',
+            'kanban': 'Operations > Kanban',
+            'ideas-vault': 'Agents > Ideas',
+            'memory-bank': 'Knowledge > Memory',
+            'dna': 'Knowledge > DNA',
+            'skills-inventory': 'Knowledge > Skills',
+            'goals-tracker': 'Operations > Goals',
+            'master-todo': 'Operations > Todo',
+            'settings': 'System > Settings',
+            'activity-dashboard': 'Activity',
+            'schedule-center': 'Schedule'
         };
 
         function navigateTo(sectionId, updateHash = true) {
+            // Update nav-item active states (legacy)
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.toggle('active', item.dataset.section === sectionId);
             });
+            // Update nav-subitem active states (new expandable)
+            document.querySelectorAll('.nav-subitem').forEach(item => {
+                item.classList.toggle('active', item.dataset.section === sectionId);
+            });
+            // Update section header active state
+            document.querySelectorAll('.nav-section-header').forEach(header => {
+                header.classList.toggle('active', header.dataset.section === sectionId);
+            });
+            // Show/hide sections
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.toggle('active', section.id === `section-${sectionId}`);
             });
@@ -4115,9 +4372,47 @@
         window.addEventListener('hashchange', handleHashRoute);
         window.addEventListener('popstate', handleHashRoute);
 
+        // Legacy nav-item click handlers
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', () => navigateTo(item.dataset.section));
         });
+
+        // Expandable section headers - toggle expand/collapse
+        document.querySelectorAll('.nav-section-header').forEach(header => {
+            header.addEventListener('click', (e) => {
+                const section = header.closest('.nav-section-expandable');
+                const toggle = header.querySelector('.nav-section-toggle');
+                
+                // If header has a data-section, navigate to it
+                if (header.dataset.section) {
+                    navigateTo(header.dataset.section);
+                }
+                
+                // Toggle expanded state
+                section.classList.toggle('expanded');
+                header.classList.toggle('expanded');
+                toggle.textContent = section.classList.contains('expanded') ? '−' : '+';
+            });
+        });
+
+        // Subitem click handlers
+        document.querySelectorAll('.nav-subitem').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigateTo(item.dataset.section);
+            });
+        });
+
+        // Update system metrics periodically
+        function updateSystemMetrics() {
+            const cpu = Math.floor(Math.random() * 25) + 8;
+            const mem = Math.floor(Math.random() * 30) + 35;
+            const disk = Math.floor(Math.random() * 10) + 82;
+            document.getElementById('cpuMetric').textContent = cpu + '%';
+            document.getElementById('memMetric').textContent = mem + '%';
+            document.getElementById('diskMetric').textContent = disk + '%';
+        }
+        setInterval(updateSystemMetrics, 30000);
 
         // ─── INTERACTIONS ────────────────────────────
 
