@@ -2926,29 +2926,40 @@
                             <span class="nav-subitem-icon">🔨</span>
                             <span>MODEL COUNSEL</span>
                         </div>
+                        <div class="nav-subitem" data-section="roundtable">
+                            <span class="nav-subitem-icon">👥</span>
+                            <span>ROUNDTABLE</span>
+                        </div>
+                        <div class="nav-subitem" data-section="agent-assist">
+                            <span class="nav-subitem-icon">>_</span>
+                            <span>AGENT ASSIST</span>
+                        </div>
                         <div class="nav-subitem" data-section="ideas-vault">
                             <span class="nav-subitem-icon">✦</span>
-                            <span>IDEAS VAULT</span>
+                            <span>AGENT IDEAS</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- 03 INTEL -->
-                <div class="nav-section-expandable" data-section-group="intel">
+                <!-- 03 KNOWLEDGE BASE -->
+                <div class="nav-section-expandable" data-section-group="knowledge">
                     <div class="nav-section-header">
                         <span class="nav-section-number">03</span>
-                        <span class="nav-section-title">Intel</span>
+                        <span class="nav-section-title">Knowledge Base</span>
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="markets">
-                            <span class="nav-subitem-icon">◈</span>
-                            <span>MARKETS</span>
+                        <div class="nav-subitem" data-section="memory-bank">
+                            <span class="nav-subitem-icon">⬡</span>
+                            <span>MEMORY BANK</span>
                         </div>
-                        <div class="nav-subitem" data-section="projects">
-                            <span class="nav-subitem-icon">◆</span>
-                            <span>PROJECTS</span>
-                            <span class="nav-subitem-badge">23</span>
+                        <div class="nav-subitem" data-section="dna">
+                            <span class="nav-subitem-icon">⎈</span>
+                            <span>DNA</span>
+                        </div>
+                        <div class="nav-subitem" data-section="skills-inventory">
+                            <span class="nav-subitem-icon">⧉</span>
+                            <span>SKILLS INVENTORY</span>
                         </div>
                     </div>
                 </div>
@@ -2961,13 +2972,14 @@
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="daily-feed">
-                            <span class="nav-subitem-icon">▸</span>
-                            <span>DAILY FEED</span>
+                        <div class="nav-subitem" data-section="projects">
+                            <span class="nav-subitem-icon">◆</span>
+                            <span>PROJECTS</span>
+                            <span class="nav-subitem-badge">23</span>
                         </div>
                         <div class="nav-subitem" data-section="kanban">
                             <span class="nav-subitem-icon">▦</span>
-                            <span>TASK MANAGER</span>
+                            <span>KANBAN</span>
                         </div>
                         <div class="nav-subitem" data-section="goals-tracker">
                             <span class="nav-subitem-icon">◈</span>
@@ -2976,6 +2988,14 @@
                         <div class="nav-subitem" data-section="master-todo">
                             <span class="nav-subitem-icon">☑</span>
                             <span>MASTER TODO</span>
+                        </div>
+                        <div class="nav-subitem" data-section="activity-dashboard">
+                            <span class="nav-subitem-icon">◎</span>
+                            <span>ACTIVITY DASHBOARD</span>
+                        </div>
+                        <div class="nav-subitem" data-section="schedule-center">
+                            <span class="nav-subitem-icon">◷</span>
+                            <span>SCHEDULE CENTER</span>
                         </div>
                     </div>
                 </div>
@@ -2988,25 +3008,21 @@
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="settings">
-                            <span class="nav-subitem-icon">⚙</span>
-                            <span>SETTINGS</span>
+                        <div class="nav-subitem" data-section="markets">
+                            <span class="nav-subitem-icon">◈</span>
+                            <span>MARKETS</span>
+                        </div>
+                        <div class="nav-subitem" data-section="daily-feed">
+                            <span class="nav-subitem-icon">▸</span>
+                            <span>DAILY FEED</span>
                         </div>
                         <div class="nav-subitem" data-section="quick-links">
                             <span class="nav-subitem-icon">↗</span>
                             <span>QUICK LINKS</span>
                         </div>
-                        <div class="nav-subitem" data-section="memory-bank">
-                            <span class="nav-subitem-icon">⬡</span>
-                            <span>MEMORY BANK</span>
-                        </div>
-                        <div class="nav-subitem" data-section="dna">
-                            <span class="nav-subitem-icon">⎈</span>
-                            <span>DNA</span>
-                        </div>
-                        <div class="nav-subitem" data-section="skills-inventory">
-                            <span class="nav-subitem-icon">⧉</span>
-                            <span>SKILLS</span>
+                        <div class="nav-subitem" data-section="settings">
+                            <span class="nav-subitem-icon">⚙</span>
+                            <span>SETTINGS</span>
                         </div>
                     </div>
                 </div>
@@ -4257,39 +4273,43 @@
         const SECTION_NAMES = {
             'mission-control': 'Command Center',
             'model-counsel': 'Model Counsel',
-            'markets': 'Market Dashboard',
-            'projects': 'Projects Board',
-            'daily-feed': 'Daily Feed',
-            'kanban': 'Task Manager',
-            'goals-tracker': 'Goals Tracker',
-            'master-todo': 'Master Todo',
-            'settings': 'Settings',
-            'quick-links': 'Quick Links',
+            'roundtable': 'Roundtable',
+            'agent-assist': 'Agent Assist',
+            'ideas-vault': 'Agent Ideas',
             'memory-bank': 'Memory Bank',
             'dna': 'DNA',
             'skills-inventory': 'Skills Inventory',
-            'ideas-vault': 'Ideas Vault',
+            'projects': 'Projects Board',
+            'kanban': 'Kanban Board',
+            'goals-tracker': 'Goals Tracker',
+            'master-todo': 'Master Todo',
             'activity-dashboard': 'Activity Dashboard',
-            'schedule-center': 'Schedule Center'
+            'schedule-center': 'Schedule Center',
+            'markets': 'Market Dashboard',
+            'daily-feed': 'Daily Feed',
+            'quick-links': 'Quick Links',
+            'settings': 'Settings'
         };
 
         const BREADCRUMB_MAP = {
             'mission-control': 'Overview',
             'model-counsel': 'Agents > Model Counsel',
-            'markets': 'Intel > Markets',
-            'projects': 'Intel > Projects',
-            'daily-feed': 'Operations > Feed',
-            'kanban': 'Operations > Tasks',
+            'roundtable': 'Agents > Roundtable',
+            'agent-assist': 'Agents > Assist',
+            'ideas-vault': 'Agents > Ideas',
+            'memory-bank': 'Knowledge > Memory',
+            'dna': 'Knowledge > DNA',
+            'skills-inventory': 'Knowledge > Skills',
+            'projects': 'Operations > Projects',
+            'kanban': 'Operations > Kanban',
             'goals-tracker': 'Operations > Goals',
             'master-todo': 'Operations > Todo',
-            'settings': 'System > Settings',
+            'activity-dashboard': 'Operations > Activity',
+            'schedule-center': 'Operations > Schedule',
+            'markets': 'System > Markets',
+            'daily-feed': 'System > Feed',
             'quick-links': 'System > Links',
-            'memory-bank': 'System > Memory',
-            'dna': 'System > DNA',
-            'skills-inventory': 'System > Skills',
-            'ideas-vault': 'Agents > Ideas',
-            'activity-dashboard': 'Activity',
-            'schedule-center': 'Schedule'
+            'settings': 'System > Settings'
         };
 
         function navigateTo(sectionId, updateHash = true) {
