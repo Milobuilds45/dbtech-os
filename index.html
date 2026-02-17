@@ -2921,9 +2921,9 @@
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
-                        <div class="nav-subitem" data-section="daily-feed">
-                            <span class="nav-subitem-icon">▸</span>
-                            <span>DAILY FEED</span>
+                        <div class="nav-subitem" data-section="morning-brief">
+                            <span class="nav-subitem-icon">☀</span>
+                            <span>MORNING BRIEF</span>
                         </div>
                         <div class="nav-subitem" data-section="projects">
                             <span class="nav-subitem-icon">◆</span>
@@ -3004,6 +3004,14 @@
                         <span class="nav-section-toggle">+</span>
                     </div>
                     <div class="nav-subitems">
+                        <div class="nav-subitem" data-section="daily-feed">
+                            <span class="nav-subitem-icon">▸</span>
+                            <span>DAILY FEED</span>
+                        </div>
+                        <div class="nav-subitem" data-section="task-manager">
+                            <span class="nav-subitem-icon">▦</span>
+                            <span>TASK MANAGER</span>
+                        </div>
                         <div class="nav-subitem" data-section="memory-bank">
                             <span class="nav-subitem-icon">⬡</span>
                             <span>MEMORY BANK</span>
@@ -4291,13 +4299,15 @@
 
         const SECTION_NAMES = {
             'mission-control': 'Command Center',
-            'daily-feed': 'Daily Feed',
+            'morning-brief': 'Morning Brief',
             'projects': 'Projects Board',
             'markets': 'Market Dashboard',
             'model-counsel': 'Model Counsel',
             'roundtable': 'Roundtable',
             'agent-assist': 'Agent Assist',
             'ideas-vault': 'Agent Ideas',
+            'daily-feed': 'Daily Feed',
+            'task-manager': 'Task Manager',
             'memory-bank': 'Memory Bank',
             'dna': 'DNA',
             'skills-inventory': 'Skills Inventory',
@@ -4314,13 +4324,15 @@
 
         const BREADCRUMB_MAP = {
             'mission-control': 'Overview',
-            'daily-feed': 'Dashboard > Feed',
+            'morning-brief': 'Dashboard > Morning Brief',
             'projects': 'Dashboard > Projects',
             'markets': 'Dashboard > Markets',
             'model-counsel': 'Agents > Model Counsel',
             'roundtable': 'Agents > Roundtable',
             'agent-assist': 'Agents > Assist',
             'ideas-vault': 'Agents > Ideas',
+            'daily-feed': 'Intel > Feed',
+            'task-manager': 'Intel > Task Manager',
             'memory-bank': 'Intel > Memory',
             'dna': 'Intel > DNA',
             'skills-inventory': 'Intel > Skills',
