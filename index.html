@@ -1600,6 +1600,229 @@
         }
 
         /* ═══════════════════════════════════════════
+           MORNING BRIEF
+           ═══════════════════════════════════════════ */
+
+        .morning-brief-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: var(--space-6);
+        }
+
+        .morning-brief-masthead {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .morning-brief-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            background: var(--gradient-accent-vivid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-glow-sm);
+        }
+
+        .morning-brief-vol {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .morning-brief-date {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .morning-brief-updated {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-tertiary);
+            margin-top: 4px;
+        }
+
+        .morning-brief-status {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--status-online);
+            padding: var(--space-2) var(--space-3);
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
+            height: fit-content;
+        }
+
+        .morning-brief-status .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--status-online);
+            animation: mbpulse 2s ease-in-out infinite;
+        }
+
+        @keyframes mbpulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .mb-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--space-4);
+        }
+
+        .mb-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-5);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mb-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .mb-card-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-3);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .mb-card-label .label-icon { font-size: 12px; }
+
+        .mb-weather-temp {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: var(--space-2);
+        }
+
+        .mb-weather-condition {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-3);
+        }
+
+        .mb-weather-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+
+        .mb-weather-detail {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-tertiary);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .mb-weather-advisory {
+            margin-top: var(--space-3);
+            padding: var(--space-2) var(--space-3);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            color: var(--warning);
+            font-weight: 500;
+        }
+
+        .mb-headline-item {
+            padding: var(--space-3) 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .mb-headline-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .mb-headline-item:first-child { padding-top: 0; }
+
+        .mb-headline-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+        .mb-headline-tag.breaking { background: rgba(239, 68, 68, 0.15); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .mb-headline-tag.local { background: rgba(99, 102, 241, 0.12); color: var(--accent-secondary); border: 1px solid rgba(99, 102, 241, 0.3); }
+        .mb-headline-tag.economy { background: rgba(34, 197, 94, 0.12); color: var(--success); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .mb-headline-tag.markets { background: rgba(0, 212, 255, 0.12); color: var(--accent); border: 1px solid rgba(0, 212, 255, 0.3); }
+        .mb-headline-tag.politics { background: rgba(245, 158, 11, 0.12); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        .mb-headline-title { font-size: 13px; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
+        .mb-headline-meta { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary); margin-top: 2px; }
+
+        .mb-index-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-2) 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .mb-index-row:last-of-type { border-bottom: none; }
+        .mb-index-name { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+        .mb-index-value { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-primary); }
+        .mb-index-change { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; }
+        .mb-index-change.up { color: var(--success); }
+        .mb-index-change.down { color: var(--danger); }
+
+        .mb-market-status-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: var(--space-3);
+        }
+        .mb-market-status-badge.pre { background: rgba(245, 158, 11, 0.12); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.3); }
+        .mb-market-status-badge.open { background: rgba(34, 197, 94, 0.12); color: var(--success); border: 1px solid rgba(34, 197, 94, 0.3); }
+        .mb-market-status-badge.closed { background: rgba(100, 116, 139, 0.12); color: var(--status-offline); border: 1px solid rgba(100, 116, 139, 0.3); }
+
+        .mb-market-mover {
+            margin-top: var(--space-3); padding: var(--space-3);
+            background: var(--bg-elevated); border-radius: var(--radius-sm); border-left: 3px solid var(--accent);
+        }
+        .mb-market-mover-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 4px; }
+        .mb-market-mover-text { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
+
+        .mb-big-news {
+            margin-top: var(--space-3); padding: var(--space-3);
+            background: rgba(239, 68, 68, 0.06); border-radius: var(--radius-sm); border-left: 3px solid var(--danger);
+        }
+        .mb-big-news-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--danger); margin-bottom: 4px; }
+        .mb-big-news-text { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
+
+        /* ═══════════════════════════════════════════
            DAILY FEED
            ═══════════════════════════════════════════ */
 
@@ -2497,6 +2720,7 @@
             .stats-row { grid-template-columns: repeat(2, 1fr); }
             .ticker-row { grid-template-columns: repeat(2, 1fr); }
             .market-grid { grid-template-columns: 1fr; }
+            .mb-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -2517,6 +2741,9 @@
             .agents-grid { grid-template-columns: 1fr; }
             .projects-grid { grid-template-columns: 1fr; }
             .ticker-row { grid-template-columns: repeat(2, 1fr); }
+            .morning-brief-header { flex-direction: column; gap: var(--space-3); }
+            .morning-brief-date { font-size: 18px; }
+            .mb-weather-temp { font-size: 36px; }
             .topbar-search { display: none; }
             .topbar-clock { display: none; }
             .links-grid { grid-template-columns: 1fr; }
@@ -3279,6 +3506,95 @@
                     </div>
                 </div>
 
+                <!-- ═══ MORNING BRIEF ═══ -->
+                <div class="section" id="section-morning-brief">
+                    <div class="morning-brief-header">
+                        <div class="morning-brief-masthead">
+                            <div class="morning-brief-icon">☀</div>
+                            <div>
+                                <div class="morning-brief-vol" id="mbVolume">VOL. --- — LOADING...</div>
+                                <div class="morning-brief-date" id="mbDate">Morning Brief</div>
+                                <div class="morning-brief-updated" id="mbUpdated">Last updated: --:-- --</div>
+                            </div>
+                        </div>
+                        <div class="morning-brief-status" id="mbStatus">
+                            <span class="pulse-dot"></span>
+                            <span id="mbStatusText">LIVE</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-grid">
+                        <!-- WEATHER CARD -->
+                        <div class="mb-card" id="mbWeatherCard">
+                            <div class="mb-card-label">
+                                <span class="label-icon">⛅</span> NASHUA, NH — WEATHER
+                            </div>
+                            <div class="mb-weather-temp" id="mbTemp">--°F</div>
+                            <div class="mb-weather-condition" id="mbCondition">Loading...</div>
+                            <div class="mb-weather-details">
+                                <div class="mb-weather-detail">
+                                    <span>High / Low</span>
+                                    <span id="mbHighLow">--°F / --°F</span>
+                                </div>
+                                <div class="mb-weather-detail">
+                                    <span>Wind</span>
+                                    <span id="mbWind">-- mph</span>
+                                </div>
+                                <div class="mb-weather-detail">
+                                    <span>Humidity</span>
+                                    <span id="mbHumidity">--%</span>
+                                </div>
+                            </div>
+                            <div class="mb-weather-advisory" id="mbAdvisory" style="display:none;"></div>
+                        </div>
+
+                        <!-- HEADLINES CARD -->
+                        <div class="mb-card" id="mbHeadlinesCard">
+                            <div class="mb-card-label">
+                                <span class="label-icon">📰</span> TOP HEADLINES
+                            </div>
+                            <div id="mbHeadlines">
+                                <div class="mb-headline-item">
+                                    <div class="mb-headline-title" style="color: var(--text-tertiary);">Awaiting headlines data...</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MARKET SNAPSHOT CARD -->
+                        <div class="mb-card" id="mbMarketCard">
+                            <div class="mb-card-label">
+                                <span class="label-icon">📈</span> MARKET SNAPSHOT
+                            </div>
+                            <div class="mb-market-status-badge" id="mbMarketBadge">--</div>
+                            <div id="mbIndices">
+                                <div class="mb-index-row">
+                                    <span class="mb-index-name">S&amp;P 500</span>
+                                    <span class="mb-index-value">---</span>
+                                    <span class="mb-index-change">---</span>
+                                </div>
+                                <div class="mb-index-row">
+                                    <span class="mb-index-name">NASDAQ</span>
+                                    <span class="mb-index-value">---</span>
+                                    <span class="mb-index-change">---</span>
+                                </div>
+                                <div class="mb-index-row">
+                                    <span class="mb-index-name">DOW</span>
+                                    <span class="mb-index-value">---</span>
+                                    <span class="mb-index-change">---</span>
+                                </div>
+                            </div>
+                            <div class="mb-market-mover" id="mbMover" style="display:none;">
+                                <div class="mb-market-mover-label">TOP MOVER</div>
+                                <div class="mb-market-mover-text" id="mbMoverText"></div>
+                            </div>
+                            <div class="mb-big-news" id="mbBigNews" style="display:none;">
+                                <div class="mb-big-news-label">MARKET-MOVING NEWS</div>
+                                <div class="mb-big-news-text" id="mbBigNewsText"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- ═══ PROJECTS ═══ -->
                 <div class="section" id="section-projects">
                     <div class="section-header">
@@ -3299,12 +3615,12 @@
                     </div>
                 </div>
 
-                <!-- ═══ MARKETS ═══ -->
+                <!-- ═══ MARKETS (UPGRADED — TIME-AWARE) ═══ -->
                 <div class="section" id="section-markets">
                     <div class="section-header">
                         <div>
                             <h1 class="section-title">Market Dashboard</h1>
-                            <p class="section-subtitle">Bobby's intel · Portfolio overview · Signal & Noise</p>
+                            <p class="section-subtitle" id="marketSubtitle">Bobby's intel · Portfolio overview · Signal & Noise</p>
                         </div>
                     </div>
 
@@ -3317,14 +3633,15 @@
                             <div class="market-brief-header">
                                 <div class="market-brief-avatar">📊</div>
                                 <div>
-                                    <div class="market-brief-title">Bobby's Daily Brief</div>
+                                    <div class="market-brief-title" id="marketBriefTitle">Bobby's Market Intel</div>
                                     <div class="market-brief-time" id="briefTime">Loading...</div>
                                 </div>
                             </div>
                             <div class="market-brief-content" id="bobbyBrief">
-                                <p><strong>Market Outlook:</strong> Cautiously bullish. Markets digesting recent macro data with tech leading the recovery. Volume has been above average on up days — a constructive sign.</p>
-                                <p><strong>Key Levels:</strong> SPY holding above 600 support. QQQ maintaining its 20-day MA. Watch NVDA earnings reaction for sector direction.</p>
-                                <p><strong>Trade Ideas:</strong> Looking at QQQ call spreads for a continuation play. AAPL showing relative strength — potential breakout above 235.</p>
+                                <p id="marketContextP1"><strong id="marketContextLabel">Loading...</strong> <span id="marketContextText">Analyzing market conditions...</span></p>
+                                <p id="marketContextP2"></p>
+                                <p id="marketContextP3"></p>
+                                <p style="font-size: 12px; color: var(--text-tertiary); margin-top: var(--space-4);" id="marketDisclaimer">Not financial advice. Data refreshes with each brief.</p>
                             </div>
                         </div>
 
@@ -3334,9 +3651,10 @@
                             <div style="color: var(--text-tertiary); font-size: 13px;">Connect portfolio to see live data</div>
                             <div class="glow-line"></div>
                             <div style="margin-top: var(--space-4);">
-                                <div class="stat-label" style="margin-bottom: var(--space-3);">Signal & Noise</div>
-                                <a href="#" class="project-link" style="font-size: 12px;">📰 Latest Edition →</a>
-                                <p style="font-size: 12px; color: var(--text-tertiary); margin-top: var(--space-3);">Derek's daily market newsletter analyzing signal from noise in financial markets.</p>
+                                <div class="stat-label" style="margin-bottom: var(--space-3);">Market Headlines</div>
+                                <div id="marketHeadlines">
+                                    <p style="font-size: 12px; color: var(--text-tertiary);">Loading headlines...</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -4295,6 +4613,202 @@
             ).join('');
         }
 
+        // ═══════════════════════════════════════════
+        // MORNING BRIEF — Volume Counter + Data Renderer
+        // ═══════════════════════════════════════════
+
+        const MB_EPOCH = new Date('2026-02-07T00:00:00-05:00').getTime();
+
+        function getMorningBriefVolume() {
+            const now = Date.now();
+            const dayMs = 86400000;
+            return Math.floor((now - MB_EPOCH) / dayMs) + 1;
+        }
+
+        function getMarketStatus() {
+            const now = new Date();
+            const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+            const hours = et.getHours();
+            const minutes = et.getMinutes();
+            const day = et.getDay();
+            const timeNum = hours * 100 + minutes;
+            if (day === 0 || day === 6) return 'closed';
+            if (timeNum < 930) return 'pre';
+            if (timeNum >= 930 && timeNum < 1600) return 'open';
+            return 'closed';
+        }
+
+        function getMarketStatusLabel(status) {
+            switch (status) {
+                case 'pre': return 'PRE-MARKET';
+                case 'open': return 'MARKET OPEN';
+                case 'closed': return 'MARKET CLOSED';
+                default: return '--';
+            }
+        }
+
+        function formatBriefDate() {
+            const now = new Date();
+            return now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/New_York' });
+        }
+
+        function formatBriefTime(isoString) {
+            const d = isoString ? new Date(isoString) : new Date();
+            return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+        }
+
+        function renderMorningBrief() {
+            const vol = getMorningBriefVolume();
+            const dateStr = formatBriefDate().toUpperCase();
+            document.getElementById('mbVolume').textContent = `VOL. ${vol} — ${dateStr}`;
+            document.getElementById('mbDate').textContent = 'Morning Brief';
+
+            const mktStatus = getMarketStatus();
+            const statusBadge = document.getElementById('mbMarketBadge');
+            statusBadge.textContent = getMarketStatusLabel(mktStatus);
+            statusBadge.className = `mb-market-status-badge ${mktStatus}`;
+
+            const statusText = document.getElementById('mbStatusText');
+            const statusEl = document.getElementById('mbStatus');
+            if (mktStatus === 'open') {
+                statusText.textContent = 'MARKETS OPEN';
+                statusEl.style.color = 'var(--status-online)';
+                statusEl.style.background = 'rgba(34, 197, 94, 0.08)';
+                statusEl.style.borderColor = 'rgba(34, 197, 94, 0.2)';
+            } else if (mktStatus === 'pre') {
+                statusText.textContent = 'PRE-MARKET';
+                statusEl.style.color = 'var(--warning)';
+                statusEl.style.background = 'rgba(245, 158, 11, 0.08)';
+                statusEl.style.borderColor = 'rgba(245, 158, 11, 0.2)';
+            } else {
+                statusText.textContent = 'AFTER HOURS';
+                statusEl.style.color = 'var(--text-tertiary)';
+                statusEl.style.background = 'rgba(100, 116, 139, 0.08)';
+                statusEl.style.borderColor = 'rgba(100, 116, 139, 0.2)';
+            }
+
+            const data = window.MORNING_BRIEF_DATA;
+            if (data) {
+                document.getElementById('mbUpdated').textContent = `Last updated: ${formatBriefTime(data.updatedAt)}`;
+                if (data.weather) {
+                    document.getElementById('mbTemp').textContent = data.weather.temp;
+                    document.getElementById('mbCondition').textContent = data.weather.condition;
+                    document.getElementById('mbHighLow').textContent = `${data.weather.high} / ${data.weather.low}`;
+                    document.getElementById('mbWind').textContent = data.weather.wind;
+                    if (data.weather.humidity) document.getElementById('mbHumidity').textContent = data.weather.humidity;
+                    if (data.weather.advisory) {
+                        const advEl = document.getElementById('mbAdvisory');
+                        advEl.textContent = data.weather.advisory;
+                        advEl.style.display = 'block';
+                    }
+                }
+                if (data.headlines && data.headlines.length > 0) {
+                    document.getElementById('mbHeadlines').innerHTML = data.headlines.map(h => `
+                        <div class="mb-headline-item">
+                            <div class="mb-headline-tag ${(h.tag || '').toLowerCase()}">${h.tag || 'NEWS'}</div>
+                            <div class="mb-headline-title">${h.title}</div>
+                            <div class="mb-headline-meta">${h.source || ''} ${h.time ? '· ' + h.time : ''}</div>
+                        </div>
+                    `).join('');
+                }
+                if (data.marketSnapshot) {
+                    const ms = data.marketSnapshot;
+                    if (ms.status) { statusBadge.textContent = getMarketStatusLabel(ms.status); statusBadge.className = `mb-market-status-badge ${ms.status}`; }
+                    if (ms.indices && ms.indices.length > 0) {
+                        document.getElementById('mbIndices').innerHTML = ms.indices.map(idx => `
+                            <div class="mb-index-row">
+                                <span class="mb-index-name">${idx.name}</span>
+                                <span class="mb-index-value">${idx.value}</span>
+                                <span class="mb-index-change ${idx.direction || ''}">${idx.change}</span>
+                            </div>
+                        `).join('');
+                    }
+                    if (ms.topMover) { document.getElementById('mbMover').style.display = 'block'; document.getElementById('mbMoverText').textContent = ms.topMover; }
+                    if (ms.bigNews) { document.getElementById('mbBigNews').style.display = 'block'; document.getElementById('mbBigNewsText').textContent = ms.bigNews; }
+                }
+            } else {
+                document.getElementById('mbUpdated').textContent = `Last updated: ${formatBriefTime(null)} (awaiting data feed)`;
+            }
+        }
+
+        renderMorningBrief();
+        setInterval(() => {
+            const mktStatus = getMarketStatus();
+            const statusBadge = document.getElementById('mbMarketBadge');
+            if (statusBadge) { statusBadge.textContent = getMarketStatusLabel(mktStatus); statusBadge.className = `mb-market-status-badge ${mktStatus}`; }
+        }, 60000);
+
+        // ═══════════════════════════════════════════
+        // MARKETS SECTION — Time-Aware Context Engine
+        // ═══════════════════════════════════════════
+
+        function renderMarketContext() {
+            const mktStatus = getMarketStatus();
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+
+            const titleEl = document.getElementById('marketBriefTitle');
+            const timeEl = document.getElementById('briefTime');
+            const subtitleEl = document.getElementById('marketSubtitle');
+            const labelEl = document.getElementById('marketContextLabel');
+            const textEl = document.getElementById('marketContextText');
+            const p2 = document.getElementById('marketContextP2');
+            const p3 = document.getElementById('marketContextP3');
+            const headlinesEl = document.getElementById('marketHeadlines');
+
+            timeEl.textContent = `Updated ${timeStr} ET`;
+
+            const data = window.MARKET_DATA;
+            if (data && data.brief) {
+                titleEl.textContent = data.brief.title || "Bobby's Market Intel";
+                labelEl.textContent = data.brief.label || 'Market Update:';
+                textEl.textContent = data.brief.text || '';
+                p2.innerHTML = data.brief.p2 || '';
+                p3.innerHTML = data.brief.p3 || '';
+                if (data.headlines && data.headlines.length > 0) {
+                    headlinesEl.innerHTML = data.headlines.map(h => `
+                        <div style="margin-bottom: 8px;">
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: ${h.breaking ? 'var(--danger)' : 'var(--accent)'};">${h.tag || 'NEWS'}</span>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">${h.title}</p>
+                            <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-tertiary);">${h.source || ''} ${h.time ? '· ' + h.time : ''}</span>
+                        </div>
+                    `).join('');
+                }
+                return;
+            }
+
+            switch (mktStatus) {
+                case 'pre':
+                    titleEl.textContent = "Bobby's Pre-Market Brief";
+                    subtitleEl.textContent = 'Pre-market analysis · Futures · Overnight movers';
+                    labelEl.textContent = 'Pre-Market:';
+                    textEl.textContent = 'Markets open at 9:30 AM ET. Check futures for overnight direction, key overnight earnings, and global market closes.';
+                    p2.innerHTML = '<strong>Watch For:</strong> Economic data releases, pre-market earnings movers, and overnight news catalysts.';
+                    p3.innerHTML = '';
+                    break;
+                case 'open':
+                    titleEl.textContent = "Bobby's Live Market Intel";
+                    subtitleEl.textContent = 'Live session · Intraday movers · Breaking market news';
+                    labelEl.textContent = 'Market Session:';
+                    textEl.textContent = 'Markets are open. Focus on intraday momentum, sector rotation, and volume leaders.';
+                    p2.innerHTML = '<strong>Key Levels:</strong> Monitor support/resistance on major indices. Volume confirms conviction.';
+                    p3.innerHTML = '<strong>Sector Watch:</strong> Track which sectors are leading and which are lagging for rotation signals.';
+                    break;
+                case 'closed':
+                    titleEl.textContent = "Bobby's Closing Recap";
+                    subtitleEl.textContent = 'Session recap · After-hours movers · Tomorrow\'s catalysts';
+                    labelEl.textContent = 'Session Closed:';
+                    textEl.textContent = 'Markets are closed. Review today\'s biggest moves, after-hours earnings reactions, and position for tomorrow\'s catalysts.';
+                    p2.innerHTML = '<strong>After Hours:</strong> Watch for earnings releases and guidance revisions.';
+                    p3.innerHTML = '<strong>Tomorrow:</strong> Check the economic calendar for scheduled data releases, Fed speeches, and earnings.';
+                    break;
+            }
+            headlinesEl.innerHTML = '<p style="font-size: 12px; color: var(--text-tertiary); font-style: italic;">Connect Bobby\'s data feed for live market headlines.</p>';
+        }
+
+        renderMarketContext();
+        setInterval(renderMarketContext, 300000);
+
         // ─── NAVIGATION (HASH ROUTING) ──────────────
 
         const SECTION_NAMES = {
@@ -4784,7 +5298,7 @@
         // ─── KEYBOARD SHORTCUTS ──────────────────────
 
         const sectionKeys = ['1', '2', '3', '4', '5', '6', '7'];
-        const sectionIds = ['mission-control', 'projects', 'markets', 'daily-feed', 'quick-links', 'kanban', 'ideas-vault'];
+        const sectionIds = ['mission-control', 'morning-brief', 'projects', 'markets', 'daily-feed', 'quick-links', 'kanban', 'ideas-vault'];
 
         document.addEventListener('keydown', (e) => {
             // Don't fire shortcuts when typing in inputs
